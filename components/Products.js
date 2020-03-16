@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import products from '../db';
+import { getAllProducts } from '../db';
 
 const ProductPPT = styled.div`
   h1 {
@@ -99,6 +99,7 @@ const Button = styled.button`
     text-decoration: none;
   }
 `;
+const products = getAllProducts();
 
 const Products = props => (
   <div>

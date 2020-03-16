@@ -28,3 +28,20 @@ You can check out [the Next.js GitHub repository](https://github.com/zeit/next.j
 The easiest way to deploy your Next.js app is to use the [ZEIT Now Platform](https://zeit.co/) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+````Setup
+Copy the .env.example file to .env and add the database connection information.
+
+You'll also need PostgreSQL for this.
+
+PostgreSQL Installation instructions
+Follow the instructions from the PostgreSQL step in UpLeveled's System Setup Instructions.
+
+Run the following queries inside of psql to set up the database and the user:
+
+CREATE DATABASE express;
+CREATE USER express WITH ENCRYPTED PASSWORD 'express';
+GRANT ALL PRIVILEGES ON DATABASE express TO express;
+SET ROLE express;
+\connect express;```
+````

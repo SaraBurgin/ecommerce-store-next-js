@@ -29,14 +29,10 @@ const products = [
   },
 ];
 
-export default products;
+export function getAllProducts() {
+  return products;
+}
 
-//Delete export default products + Change imports to {getAllProducts};
-
-// export function getAllProducts() {
-//   return products;
-// }
-
-// export function getProductById(id) {
-//   return products.find(product => product.id === id);
-// }
+export function getProductById(id) {
+  return products.find(product => product.id === id);
+}

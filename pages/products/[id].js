@@ -1,6 +1,6 @@
 import Layout from '../../components/Layout';
 import Head from 'next/head';
-import products from '../../db';
+import { getProductById } from '../../db';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -55,6 +55,7 @@ const Button = styled.button`
 `;
 
 export default function Product(props) {
+  // const product = getProductById(props.product.id);
   return (
     <>
       <Layout>
@@ -83,12 +84,10 @@ export default function Product(props) {
     </>
   );
 }
+
 Product.getInitialProps = async ctx => {
   const id = ctx.query.id;
-  const product = products.find(product => {
-    console.log(typeof id, typeof product.id);
-    return id === product.id;
-  });
+  const product = getProductById(id);
   return {
     product: product,
   };
