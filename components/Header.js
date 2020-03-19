@@ -106,10 +106,14 @@ const Header = () => (
   <>
     <main>
       <Logo>
-        <img src="/images/logo.png" alt="cheesepic" />
+        <Link href="/">
+          <img src="/images/logo.png" alt="cheesepic" />
+        </Link>
       </Logo>
       <ShoppingCart>
-        <img src="/cart.png" alt="cartpic" />
+        <Link href="../../shoppingCart">
+          <img src="/images/cart.png" alt="cartpic" />
+        </Link>
       </ShoppingCart>
       <BreakLine>
         <hr></hr>

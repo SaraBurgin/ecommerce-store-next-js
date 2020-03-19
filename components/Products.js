@@ -87,9 +87,10 @@ const Button = styled.button`
   color: #ffffff;
   width: 150px;
   border-radius: 8px;
-  margin-left: 30px;
+  margin-left: 125px;
   margin-right: 5px;
-  padding: 5px;
+  margin-bottom: 10px;
+  padding: 7px;
   font-size: 17px;
   text-decoration: none;
   -webkit-appearance: none;
@@ -111,13 +112,13 @@ export default function Products(props) {
         <p>Here are the real deal 3 best cheeses of 2019!</p>
       </ProductPPT>
       <ProductSelection>
+        <a href="products" id="products" />
         {props.products.map(product => (
           <div key={product.id}>
             <Image src={`/images/${product.id}.jpg`} />
             <Name>{product.name}</Name>
             <Description>{product.description}</Description>
             <Price>{product.price}€/ Kg</Price>
-            <Button>Add to cart</Button>
             <Button>
               <Link href={`/products/${product.id}`}>Read more</Link>
             </Button>
