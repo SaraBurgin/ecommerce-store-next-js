@@ -1,7 +1,4 @@
 import styled from 'styled-components';
-import logoImage from '../public/images/logo.png';
-import instagram from '../public/images/instagram.png';
-import facebook from '../public/images/facebook.png';
 
 const Break1 = styled.div`
   width: 1400px;
@@ -69,16 +66,16 @@ const Footer = () => (
       <hr></hr>
     </Break1>
     <Instagram>
-      <img src={instagram} />
+      <img src="/images/instagram.png" alt="instagramicon" />
     </Instagram>
     <Facebook>
-      <img src={facebook} />
+      <img src="/images/facebook.png" alt="facebookicon" />
     </Facebook>
     <RightContainer>
       <h1>
         Follow us on social media to get all cheesy updates and recommendations!
       </h1>
-      <img src={logoImage} />
+      <img src="/images/logo.png" alt="cheesepic" />
       <h2>
         <span>Tlfn: +34 934 784 619</span>
         <br />

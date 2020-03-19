@@ -1,5 +1,5 @@
+import Link from 'next/link';
 import styled from 'styled-components';
-import { getAllProducts } from '../db';
 
 const ProductPPT = styled.div`
   h1 {
@@ -99,40 +99,31 @@ const Button = styled.button`
     text-decoration: none;
   }
 `;
-const products = getAllProducts();
 
-const Products = props => (
-  <div>
-    <ProductPPT>
-      <h1>
-        You can <span>select</span> and <span>buy </span>from our{' '}
-        <span>cheese</span> display.
-      </h1>
-      <p>Here are the real deal 3 best cheeses of 2019!</p>
-    </ProductPPT>
-    <ProductSelection>
-      {products.map(product => {
-        return (
-          <>
-            <a href="products" id="products" />
-            <div key={product.id}>
-              <Image src={product.image} alt="cheese" />
-              <Name> {product.name}</Name>
-              <Description>{product.description}</Description>
-              <Price>{product.price}</Price>
-              <Button>Add to cart</Button>
-              <Button className="readmore">
-                <a href={product.url} title="Read more">
-                  {' '}
-                  Read more{' '}
-                </a>
-              </Button>
-            </div>
-          </>
-        );
-      })}
-    </ProductSelection>
-  </div>
-);
-
-export default Products;
+export default function Products(props) {
+  return (
+    <>
+      <ProductPPT>
+        <h1>
+          You can <span>select</span> and <span>buy </span>from our{' '}
+          <span>cheese</span> display.
+        </h1>
+        <p>Here are the real deal 3 best cheeses of 2019!</p>
+      </ProductPPT>
+      <ProductSelection>
+        {props.products.map(product => (
+          <div key={product.id}>
+            <Image src={`/images/${product.id}.jpg`} />
+            <Name>{product.name}</Name>
+            <Description>{product.description}</Description>
+            <Price>{product.price}€/ Kg</Price>
+            <Button>Add to cart</Button>
+            <Button>
+              <Link href={`/products/${product.id}`}>Read more</Link>
+            </Button>
+          </div>
+        ))}
+      </ProductSelection>
+    </>
+  );
+}

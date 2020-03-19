@@ -3,7 +3,7 @@ import Layout from '../components/Layout';
 import Main from '../components/Main';
 import Products from '../components/Products';
 
-const Index = () => (
+const Index = props => (
   <>
     <Layout>
       <div className="container">
@@ -11,11 +11,21 @@ const Index = () => (
           <title>Home</title>
           <link rel="icon" href="" />
         </Head>
+        <Main />
+        <Products products={props.products} />
       </div>
-      <Main />
-      <Products />
     </Layout>
   </>
 );
 
 export default Index;
+
+export async function getStaticProps() {
+  const { getAllProducts } = await import('../db');
+  const products = await getAllProducts();
+  return {
+    props: {
+      products: products,
+    },
+  };
+}

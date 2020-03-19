@@ -1,6 +1,5 @@
 import Layout from '../../components/Layout';
 import Head from 'next/head';
-import { getProductById } from '../../db';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -55,40 +54,81 @@ const Button = styled.button`
 `;
 
 export default function Product(props) {
-  // const product = getProductById(props.product.id);
   return (
     <>
       <Layout>
-        {props.product === undefined ? (
-          'Product not found.'
-        ) : (
-          <>
-            <div className="container">
-              <Head>
-                <title>{props.product.name}</title>
-              </Head>
-            </div>
-
-            <Container>
-              <Image src={props.product.image} alt="cheese" />
-              <Text>
-                <h1>{props.product.name}</h1>
-                <p className="description">{props.product.description}</p>
-                <p className="price">{props.product.price}</p>
-                <Button>Add to cart</Button>
-              </Text>
-            </Container>
-          </>
-        )}
+        <Head />
+        <Container>
+          <Image src={`/images/${props.product.id}.jpg`}></Image>
+          <Text>
+            <h1>{props.product.name}</h1>
+            <p className="description">{props.product.description}</p>
+            <p className="price">{props.product.price}€/Kg</p>
+            <Button>Add to cart</Button>
+          </Text>
+        </Container>
       </Layout>
     </>
   );
 }
 
-Product.getInitialProps = async ctx => {
-  const id = ctx.query.id;
-  const product = getProductById(id);
+export async function getStaticProps(ctx) {
+  const { getAllProducts } = await import('../../db');
+  const products = await getAllProducts();
   return {
-    product: product,
+    props: {
+      product: products.find(product => product.id === Number(ctx.params.id)),
+    },
   };
-};
+}
+export async function getStaticPaths() {
+  const { getAllProducts } = await import('../../db');
+  const products = await getAllProducts();
+
+  const paths = products.map(product => ({
+    params: { id: String(product.id) },
+  }));
+
+  return {
+    paths: paths,
+    fallback: false,
+  };
+}
+
+// export default function Product(props) {
+//   return (
+//     <>
+//       <Layout>
+//         {props.product === undefined ? (
+//           'Product not found.'
+//         ) : (
+//           <>
+//             <div className="container">
+//               <Head>
+//                 <title>{props.product.name}</title>
+//               </Head>
+//             </div>
+
+//             <Container>
+//               <Image src={props.product.image} alt="cheese" />
+//               <Text>
+//                 <h1>{props.product.name}</h1>
+//                 <p className="description">{props.product.description}</p>
+//                 <p className="price">{props.product.price}</p>
+//                 <Button>Add to cart</Button>
+//               </Text>
+//             </Container>
+//           </>
+//         )}
+//       </Layout>
+//     </>
+//   );
+// }
+
+// Product.getInitialProps = async ctx => {
+//   const id = ctx.query.id;
+//   const product = getProductById(id);
+//   return {
+//     product: product,
+//   };
+// };

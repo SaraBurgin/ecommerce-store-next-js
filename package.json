@@ -2,18 +2,24 @@
   "name": "ecommerce-store-next-js",
   "version": "0.1.0",
   "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
-  },
+  "main": "index.js",
   "dependencies": {
     "babel-plugin-styled-components": "^1.10.7",
-    "isomorphic-unfetch": "^3.0.0",
+    "dotenv": "^8.2.0",
     "next": "^9.3.0",
-    "next-images": "^1.3.1",
+    "postgres": "^1.0.2",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "styled-components": "^5.0.1"
+  },
+  "devDependencies": {
+    "dotenv-cli": "^3.1.0",
+    "ley": "^0.5.0"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "migrate": "dotenv ley --"
   }
 }

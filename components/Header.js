@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 import Link from 'next/link';
-import logoImage from '../public/images/logo.png';
-import cartImage from '../public/images/cart.png';
 
 const Logo = styled.div`
   img {
@@ -108,10 +106,10 @@ const Header = () => (
   <>
     <main>
       <Logo>
-        <img src={logoImage} />
+        <img src="/images/logo.png" alt="cheesepic" />
       </Logo>
       <ShoppingCart>
-        <img src={cartImage} />
+        <img src="/cart.png" alt="cartpic" />
       </ShoppingCart>
       <BreakLine>
         <hr></hr>

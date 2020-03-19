@@ -1,4 +1,3 @@
-import teamImage from '../public/images/team.jpg';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -43,7 +42,7 @@ const Main = props => (
   <>
     <div>
       <Container>
-        <img src={teamImage} />
+        <img src="/images/team.jpg" alt="informalteampic" />
         <h1 className="title">
           We love <span>cheese</span>!
         </h1>
