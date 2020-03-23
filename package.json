@@ -2,6 +2,9 @@
   "name": "ecommerce-store-next-js",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "12.16.x"
+  },
   "main": "index.js",
   "dependencies": {
     "babel-plugin-styled-components": "^1.10.7",
@@ -21,6 +24,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "migrate": "dotenv ley --"
+    "migrate": "dotenv ley --",
+    "heroku-postbuild": "npm run build"
   }
 }
