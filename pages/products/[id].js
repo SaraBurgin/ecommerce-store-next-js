@@ -2,6 +2,7 @@ import Layout from '../../components/Layout';
 import Head from 'next/head';
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
+import Cookies from 'js-cookie';
 
 const Container = styled.div`
   display: flex;
@@ -56,9 +57,16 @@ const Button = styled.button`
 
 export default function Product(props) {
   const router = useRouter();
+  const product = props.product;
 
-  function handleClick(e) {
-    e.preventDefault(); //what is this for??
+  function handleClick() {
+    // e.preventDefault(); //what is this for??
+    const cookieValue = {
+      id: product.id,
+      name: product.name,
+      price: product.price,
+    };
+    Cookies.set('product', cookieValue);
     router.push('/shoppingCart');
   }
   return (
