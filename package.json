@@ -25,6 +25,6 @@
     "build": "next build",
     "start": "next start",
     "migrate": "dotenv ley --",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm run migrate up && npm run build"
   }
 }
