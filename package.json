@@ -26,5 +26,6 @@
     "start": "next start",
     "migrate": "dotenv ley --",
     "heroku-postbuild": "npm run migrate up && npm run build"
+    {// Will run automatically when you push to Git //}
   }
 }
