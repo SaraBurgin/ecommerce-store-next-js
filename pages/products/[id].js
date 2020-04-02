@@ -75,7 +75,7 @@ export default function Product(props) {
   const [kilos, setKilos] = useState(1);
   const product = props.product;
 
-  function SelectChange(evt) {
+  function handleChange(evt) {
     setKilos(evt.target.value);
   }
 
@@ -87,7 +87,7 @@ export default function Product(props) {
       name: product.name,
       price: product.price,
     };
-    Cookies.set('product', cookieValue);
+    Cookies.set('cart', cookieValue);
     Router.push('/cart');
   }
 
@@ -107,7 +107,7 @@ export default function Product(props) {
             <p className="price">
               {props.product.price}€/Kg
               <div className="container">
-                <select onChange={SelectChange} className="inputbox">
+                <select onChange={handleChange} className="inputbox">
                   <option value="1">1kg</option>
                   <option value="2">2kg </option>
                   <option value="3">3kg </option>
@@ -124,6 +124,7 @@ export default function Product(props) {
   );
 }
 
+
 export async function getStaticProps(ctx) {
   const { getAllProducts } = await import('../../db');
   const products = await getAllProducts();
@@ -133,10 +134,10 @@ export async function getStaticProps(ctx) {
     },
   };
 }
+
 export async function getStaticPaths() {
   const { getAllProducts } = await import('../../db');
   const products = await getAllProducts();
-
   const paths = products.map(product => ({
     params: { id: String(product.id) },
   }));

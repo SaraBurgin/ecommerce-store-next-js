@@ -111,7 +111,7 @@ const Header = () => (
         </Link>
       </Logo>
       <ShoppingCart>
-        <Link href="../../shoppingCart">
+        <Link href="../../cart">
           <img src="/images/cart.png" alt="cartpic" />
         </Link>
       </ShoppingCart>
