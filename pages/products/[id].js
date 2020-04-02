@@ -3,6 +3,7 @@ import Head from 'next/head';
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
 import Cookies from 'js-cookie';
+import React, { useState } from 'react';
 
 const Container = styled.div`
   display: flex;
@@ -42,6 +43,19 @@ const Text = styled.div`
     padding-top: 10px;
     margin-top: 25px;
   }
+  p .container {
+    margin-top: -24px;
+    margin-left: 150px;
+  }
+  p .inputbox {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+      'Lucida Sans', Arial, sans-serif;
+    color: #eecc09;
+    margin-top: -500px;
+    font-size: 13px;
+    width: 55px;
+    border: 2px solid;
+  }
 `;
 
 const Button = styled.button`
@@ -50,25 +64,37 @@ const Button = styled.button`
   width: 175px;
   border-radius: 8px;
   padding: 7px;
-  font-size: 22px;
+  font-size: 21px;
   margin-left: 110px;
   margin-top: 0px;
 `;
 
 export default function Product(props) {
-  const router = useRouter();
+  const Router = useRouter();
+
+  const [kilos, setKilos] = useState(1);
   const product = props.product;
+
+  function SelectChange(evt) {
+    setKilos(evt.target.value);
+  }
 
   function handleClick() {
     // e.preventDefault(); //what is this for??
     const cookieValue = {
       id: product.id,
+      kilos: kilos,
       name: product.name,
       price: product.price,
     };
     Cookies.set('product', cookieValue);
-    router.push('/shoppingCart');
+    Router.push('/cart');
   }
+
+  if (product === undefined) {
+    return <div> Error in the system</div>;
+  }
+
   return (
     <>
       <Layout>
@@ -78,8 +104,19 @@ export default function Product(props) {
           <Text>
             <h1>{props.product.name}</h1>
             <p className="description">{props.product.description}</p>
-            <p className="price">{props.product.price}€/Kg</p>
-            <Button onClick={handleClick}>Add to cart</Button>
+            <p className="price">
+              {props.product.price}€/Kg
+              <div className="container">
+                <select onChange={SelectChange} className="inputbox">
+                  <option value="1">1kg</option>
+                  <option value="2">2kg </option>
+                  <option value="3">3kg </option>
+                  <option value="4">4kg </option>
+                  <option value="5">5kg </option>
+                </select>
+              </div>
+            </p>
+            <Button onClick={handleClick}> Add to cart</Button>
           </Text>
         </Container>
       </Layout>

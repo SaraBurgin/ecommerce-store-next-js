@@ -1,1 +1,0 @@
-/* remember to create default display in card details to not have problems in future */
