@@ -73,6 +73,7 @@ export default function Product(props) {
   const Router = useRouter();
 
   const [kilos, setKilos] = useState(1);
+
   const product = props.product;
 
   function handleChange(evt) {
@@ -86,6 +87,7 @@ export default function Product(props) {
       kilos: kilos,
       name: product.name,
       price: product.price,
+      image: product.image,
     };
     Cookies.set('cart', cookieValue);
     Router.push('/cart');
@@ -124,13 +126,12 @@ export default function Product(props) {
   );
 }
 
-
 export async function getStaticProps(ctx) {
   const { getAllProducts } = await import('../../db');
   const products = await getAllProducts();
   return {
     props: {
-      product: products.find(product => product.id === Number(ctx.params.id)),
+      product: products.find((product) => product.id === Number(ctx.params.id)),
     },
   };
 }
@@ -138,7 +139,7 @@ export async function getStaticProps(ctx) {
 export async function getStaticPaths() {
   const { getAllProducts } = await import('../../db');
   const products = await getAllProducts();
-  const paths = products.map(product => ({
+  const paths = products.map((product) => ({
     params: { id: String(product.id) },
   }));
 
