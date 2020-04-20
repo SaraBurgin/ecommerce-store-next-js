@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import Link from 'next/link';
+import Cookies from 'js-cookie';
 
 const Logo = styled.div`
   img {
@@ -102,50 +103,62 @@ const ShoppingCart = styled.div`
   }
 `;
 
-const Header = () => (
-  <>
-    <main>
-      <Logo>
-        <Link href="/">
-          <img src="/images/logo.png" alt="cheesepic" />
-        </Link>
-      </Logo>
-      <ShoppingCart>
-        <Link href="../../cart">
-          <img src="/images/cart.png" alt="cartpic" />
-        </Link>
-      </ShoppingCart>
-      <BreakLine>
-        <hr></hr>
-      </BreakLine>
-      <Navigation>
-        <div>
-          <ul>
-            <li>
-              <Link href="/">
-                <a className="home">Home</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/#products">
-                <a className="productsNav">Products</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/theteam">
-                <a className="theTeam">The team</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/contact">
-                <a className="contact">Contact</a>
-              </Link>
-            </li>
-          </ul>
-        </div>
-      </Navigation>
-    </main>
-  </>
-);
+const Header = () => {
+  /* Create a variable with a default value of the number of items in the cart, it is used to avoid else statement below*/
+  let cartLength = '';
+  /*The if statement is checking if we are in the browser because we can only access cookies from the browser */
+  if (typeof window !== 'undefined') {
+    cartLength = JSON.parse(Cookies.get('cart')).length;
+  }
+
+  return (
+    <>
+      <main>
+        <Logo>
+          <Link href="/">
+            <img src="/images/logo.png" alt="cheesepic" />
+          </Link>
+        </Logo>
+        <ShoppingCart>
+          <Link href="../../cart">
+            <a>
+              {cartLength}
+              <img src="/images/cart.png" alt="cartpic" />
+            </a>
+          </Link>
+        </ShoppingCart>
+        <BreakLine>
+          <hr></hr>
+        </BreakLine>
+        <Navigation>
+          <div>
+            <ul>
+              <li>
+                <Link href="/">
+                  <a className="home">Home</a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/#products">
+                  <a className="productsNav">Products</a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/theteam">
+                  <a className="theTeam">The team</a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact">
+                  <a className="contact">Contact</a>
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </Navigation>
+      </main>
+    </>
+  );
+};
 
 export default Header;

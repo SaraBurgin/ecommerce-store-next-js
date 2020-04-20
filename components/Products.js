@@ -113,14 +113,16 @@ export default function Products(props) {
       </ProductPPT>
       <ProductSelection>
         <a href="products" id="products" />
-        {props.products.map(product => (
+        {props.products.map((product) => (
           <div key={product.id}>
             <Image src={`/images/${product.id}.jpg`} />
             <Name>{product.name}</Name>
             <Description>{product.description}</Description>
             <Price>{product.price}€/ Kg</Price>
             <Button>
-              <Link href={`/products/${product.id}`}>Read more</Link>
+              <Link href={`/products/${product.id}`}>
+                <a>Read more</a>
+              </Link>
             </Button>
           </div>
         ))}

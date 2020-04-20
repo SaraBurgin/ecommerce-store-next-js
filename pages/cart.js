@@ -1,7 +1,6 @@
 import Layout from '../components/Layout';
 import cookies from 'next-cookies';
 import styled from 'styled-components';
-import Product from './products/[id]';
 
 const CartIntro = styled.p`
   margin-top: 50px;
@@ -50,9 +49,12 @@ const CartInfo = styled.div`
   }
 `;
 
+const Length = styled.p``;
+
 export default function Cart(props) {
-  // Cookies.getJSON(cookieValue); //Not use this one, include Next cookies to read it on the server side. Using getServerSideProps
+  /* Here we assing the value of props.cart to a new variable*/
   const cart = props.cart;
+  const cartLength = cart.length;
 
   if (typeof cart === 'undefined') {
     return <div> Error in the system</div>;
@@ -66,23 +68,33 @@ export default function Cart(props) {
           <p>Your shopping cart</p>
         </CartIntro>
         <CartInfo>
-          <p className="cartName">
-            <span>Product: </span>
-            {cart.name}
-          </p>
-          <p className="cartKilos">
-            <span>Kilos: </span>
-            {cart.kilos} /kgs{' '}
-          </p>
-          <p className="cartMultiply">
-            <span>Total price: </span>
-            {`${cart.price * cart.kilos} € `}
-          </p>
+          {/* We use the cart map to map over our cart and return the specific cartValues that we wanted*/}
+          {cart.map(function (cartValue) {
+            return (
+              <>
+                <p className="cartName">
+                  <span>Product: </span> {cartValue.name}
+                </p>
+                <p className="cartKilos">
+                  <span>Kilos: </span>
+                  {cartValue.kilos} /kgs{' '}
+                </p>
+                <p className="cartMultiply">
+                  <span>Total price: </span>
+                  {`${cartValue.price * cartValue.kilos} € `} Vat Incl
+                </p>
+              </>
+            );
+          })}
         </CartInfo>
+        <Length> {cartLength} </Length>
       </Layout>
     </>
   );
 }
+/*1. so with getServerSideProps we make available the context of cart
+2. we create a new variable named cart with the information from my cart and also the cookies context
+3. we show the information*/
 
 export async function getServerSideProps(ctx) {
   const cart = cookies(ctx).cart;

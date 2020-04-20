@@ -3,7 +3,7 @@ import Layout from '../components/Layout';
 import Main from '../components/Main';
 import Products from '../components/Products';
 
-const Index = props => (
+const Index = (props) => (
   <>
     <Layout>
       <div className="container">
