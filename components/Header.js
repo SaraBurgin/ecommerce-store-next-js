@@ -95,20 +95,32 @@ const Navigation = styled.a`
   }
 `;
 const ShoppingCart = styled.div`
+  p {
+    position: absolute;
+    color: #737373;
+    font-size: 15px;
+    top: 25px;
+    right: 18px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+      'Lucida Sans', Arial, sans-serif;
+  }
+
   img {
     position: absolute;
     width: 30px;
     top: 20px;
-    right: 25px;
+    right: 37px;
   }
 `;
 
 const Header = () => {
-  /* Create a variable with a default value of the number of items in the cart, it is used to avoid else statement below*/
+  /* Create a variable with a default value of the number of items in the cart*/
   let cartLength = '';
   /*The if statement is checking if we are in the browser because we can only access cookies from the browser */
   if (typeof window !== 'undefined') {
     cartLength = JSON.parse(Cookies.get('cart')).length;
+  } else {
+    cartLength = '';
   }
 
   return (
@@ -120,9 +132,9 @@ const Header = () => {
           </Link>
         </Logo>
         <ShoppingCart>
+          <p>({cartLength})</p>
           <Link href="../../cart">
             <a>
-              {cartLength}
               <img src="/images/cart.png" alt="cartpic" />
             </a>
           </Link>

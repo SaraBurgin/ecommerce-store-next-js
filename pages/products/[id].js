@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { useRouter } from 'next/router';
 import Cookies from 'js-cookie';
 import React, { useState } from 'react';
+import cookies from 'next-cookies';
 
 const Container = styled.div`
   display: flex;
@@ -71,7 +72,6 @@ const Button = styled.button`
 
 export default function Product(props) {
   const Router = useRouter();
-
   const [kilos, setKilos] = useState(1);
 
   const product = props.product;
@@ -81,8 +81,15 @@ export default function Product(props) {
   }
 
   function handleClick() {
-    /* With JSON.parse we turn our cookie string in to an object and store it on a new variable named cart*/
-    const cart = JSON.parse(Cookies.get('cart'));
+    let cart;
+
+    /* With JSON.parse we turn our cookie string in to an array and store it in a new variable named cart. It is important we use this if statement because JSON.parse turns a string into an array but if there is no string it cannot turn it to an object*/
+    if (Cookies.get('cart') !== undefined) {
+      cart = JSON.parse(Cookies.get('cart'));
+    } else {
+      cart = [];
+    }
+
     const cookieValue = [
       /* ...cart is used so that we show ALL the information that is stored in cookies, not just the last one*/
       ...cart,
@@ -94,9 +101,9 @@ export default function Product(props) {
         image: product.image,
       },
     ];
-
     /* Setting a cookie means to store the information you specify in your variable*/
     Cookies.set('cart', cookieValue);
+
     /* Router push takes you to the page you specify*/
     Router.push('/cart');
   }
@@ -104,7 +111,6 @@ export default function Product(props) {
   if (product === undefined) {
     return <div> Error in the system</div>;
   }
-
   return (
     <>
       <Layout>
