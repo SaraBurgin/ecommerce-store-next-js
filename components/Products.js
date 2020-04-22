@@ -82,45 +82,30 @@ const Price = styled.p`
   text-align: center;
   padding-top: 10px;
   .inputbox {
-    margin-left: 15px;
+    margin-left: 25px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+      'Lucida Sans', Arial, sans-serif;
+    color: #eecc09;
+    margin-top: -500px;
+    font-size: 13px;
+    width: 55px;
+    border: 2px solid;
   }
 `;
 
-const Click1 = styled.button`
-  background: none;
-  margin-left: 20px;
+const Button = styled.button`
+  margin-left: 35px;
   margin-bottom: 10px;
-  border: none;
-
-  .readMore {
-    font-size: 17px;
-    background-color: #eecc09;
-    width: 150px;
-    margin-left: 10px;
-    border-radius: 8px;
-    color: #ffffff;
-    padding: 7px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-      'Lucida Sans', Arial, sans-serif;
-  }
-`;
-
-const Click2 = styled.button`
   background: none;
-  margin-left: 17px;
-  margin-bottom: 10px;
   border: none;
-
-  .addToCart {
-    font-size: 17px;
-    background-color: #eecc09;
-    width: 150px;
-    border-radius: 8px;
-    color: #ffffff;
-    padding: 7px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-      'Lucida Sans', Arial, sans-serif;
-  }
+  border-radius: 8px;
+  width: 150px;
+  background-color: #eecc09;
+  padding: 7px;
+  font-size: 17px;
+  color: #ffffff;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
 `;
 
 export default function Products(props) {
@@ -156,14 +141,10 @@ export default function Products(props) {
               </select>
             </Price>
 
-            <Click1>
-              <Link href={`/products/${product.id}`}>
-                <button className="readMore">Read More</button>
-              </Link>
-            </Click1>
-            <Click2>
-              <button className="addToCart">Add To cart</button>
-            </Click2>
+            <Button href={`/products/${product.id}`} className="readMore">
+              <Link href={`/products/${product.id}`}>Read More </Link>
+            </Button>
+            <Button className="addToCart">Add To cart</Button>
           </div>
         ))}
       </ProductSelection>
