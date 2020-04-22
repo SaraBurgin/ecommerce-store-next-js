@@ -71,6 +71,7 @@ const Button = styled.button`
 `;
 
 export default function Product(props) {
+  /*We create a variable to call the useRouter() function below*/
   const Router = useRouter();
   const [kilos, setKilos] = useState(1);
 
@@ -82,7 +83,6 @@ export default function Product(props) {
 
   function handleClick() {
     let cart;
-
     /* With JSON.parse we turn our cookie string in to an array and store it in a new variable named cart. It is important we use this if statement because JSON.parse turns a string into an array but if there is no string it cannot turn it to an object*/
     if (Cookies.get('cart') !== undefined) {
       cart = JSON.parse(Cookies.get('cart'));

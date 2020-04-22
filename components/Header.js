@@ -5,7 +5,7 @@ import Cookies from 'js-cookie';
 const Logo = styled.div`
   img {
     display: block;
-    margin-left: 650px;
+    margin-left: 610px;
     width: 200px;
   }
 `;

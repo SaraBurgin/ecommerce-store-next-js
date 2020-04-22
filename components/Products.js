@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import styled from 'styled-components';
+import React, { useState } from 'react';
 
 const ProductPPT = styled.div`
   h1 {
@@ -80,28 +81,54 @@ const Price = styled.p`
   height: 40px;
   text-align: center;
   padding-top: 10px;
+  .inputbox {
+    margin-left: 15px;
+  }
 `;
 
-const Button = styled.button`
-  background-color: #eecc09;
-  color: #ffffff;
-  width: 150px;
-  border-radius: 8px;
-  margin-left: 125px;
-  margin-right: 5px;
+const Click1 = styled.button`
+  background: none;
+  margin-left: 20px;
   margin-bottom: 10px;
-  padding: 7px;
-  font-size: 17px;
-  text-decoration: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
+  border: none;
 
-  button:active {
-    text-decoration: none;
+  .readMore {
+    font-size: 17px;
+    background-color: #eecc09;
+    width: 150px;
+    margin-left: 10px;
+    border-radius: 8px;
+    color: #ffffff;
+    padding: 7px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+      'Lucida Sans', Arial, sans-serif;
+  }
+`;
+
+const Click2 = styled.button`
+  background: none;
+  margin-left: 17px;
+  margin-bottom: 10px;
+  border: none;
+
+  .addToCart {
+    font-size: 17px;
+    background-color: #eecc09;
+    width: 150px;
+    border-radius: 8px;
+    color: #ffffff;
+    padding: 7px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+      'Lucida Sans', Arial, sans-serif;
   }
 `;
 
 export default function Products(props) {
+  const [kilos, setKilos] = useState(1);
+
+  function handleChange(evt) {
+    setKilos(evt.target.value);
+  }
   return (
     <>
       <ProductPPT>
@@ -118,12 +145,25 @@ export default function Products(props) {
             <Image src={`/images/${product.id}.jpg`} />
             <Name>{product.name}</Name>
             <Description>{product.description}</Description>
-            <Price>{product.price}€/ Kg</Price>
-            <Button>
+            <Price>
+              {product.price}€/ Kg
+              <select onChange={handleChange} className="inputbox">
+                <option value="1">1kg</option>
+                <option value="2">2kg </option>
+                <option value="3">3kg </option>
+                <option value="4">4kg </option>
+                <option value="5">5kg </option>
+              </select>
+            </Price>
+
+            <Click1>
               <Link href={`/products/${product.id}`}>
-                <a>Read more</a>
+                <button className="readMore">Read More</button>
               </Link>
-            </Button>
+            </Click1>
+            <Click2>
+              <button className="addToCart">Add To cart</button>
+            </Click2>
           </div>
         ))}
       </ProductSelection>
