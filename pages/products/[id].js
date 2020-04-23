@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import { useRouter } from 'next/router';
 import Cookies from 'js-cookie';
 import React, { useState } from 'react';
-import cookies from 'next-cookies';
 
 const Container = styled.div`
   display: flex;
@@ -83,7 +82,7 @@ export default function Product(props) {
 
   function handleClick() {
     let cart;
-    /* With JSON.parse we turn our cookie string in to an array and store it in a new variable named cart. It is important we use this if statement because JSON.parse turns a string into an array but if there is no string it cannot turn it to an object*/
+    /* With JSON.parse we turn our cookie string in to an array and store all it's information in a new variable named cart. It is important we use this if statement because JSON.parse turns a string into an array but if there is no string it cannot turn it to an object*/
     if (Cookies.get('cart') !== undefined) {
       cart = JSON.parse(Cookies.get('cart'));
     } else {

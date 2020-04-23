@@ -6,22 +6,30 @@ import { useRouter } from 'next/router';
 
 const CartIntro = styled.p`
   margin-top: 50px;
-  color: #737373;
-  font-weight: bold;
-  font-size: 35px;
   margin-left: 325px;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-    'Lucida Sans', Arial, sans-serif;
+  margin-bottom: 30px;
+  width: 375px;
+
+  .title {
+    color: #737373;
+    font-weight: bold;
+    font-size: 35px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+      'Lucida Sans', Arial, sans-serif;
+    border-bottom: 2px solid #737373;
+    padding-bottom: 3px;
+    width: 310px;
+  }
 `;
 
 const CartInfo = styled.div`
   .totalCart {
     display: grid;
-    grid-template-columns: 300px 150px 190px 190px 40px;
+    grid-template-columns: 300px 125px 180px 190px 40px;
     border-top: 2px solid #eecc09;
     border-bottom: 2px solid #eecc09;
-    width: 900px;
-    margin-left: 325px;
+    width: 825px;
+    margin-left: 320px;
     color: #737373;
   }
   .cartName {
@@ -77,7 +85,7 @@ const CartInfo = styled.div`
 `;
 
 const TotalPrice = styled.p`
-  margin-left: 1000px;
+  margin-left: 990px;
   font-weight: bold;
   font-size: 20px;
   color: #737373;
@@ -115,7 +123,7 @@ export default function Cart(props) {
         return true;
       }
     });
-    /*Delete our filtered item from our cookies with Cookies.set*/
+    /*Delete our filtered item from our cookies with Cookies.set and reload the page so it is deleted*/
     Cookies.set('cart', newCart);
     window.location.reload();
   }
@@ -124,26 +132,38 @@ export default function Cart(props) {
     Router.push('/payment');
   }
 
+  /* VERSION 1 */
+
+  /*const cartTotals = cart.map(function (cartTotal) {
+    return parseInt(`${cartTotal.kilos * cartTotal.price} `);
+  });
+
+  const sumTotals = cartTotals.reduce((total, currentValue) => {
+    console.log(total);
+    return total + currentValue;
+  }, 0);*/
+
+  /* VERSION 2 */
+  /* 1. Create a variable to track the total*/
+  /* 2. Go through each of the products and update the variable*/
+  /* Cart reduce already does a map through our array so this version is simpler than version 1. It is required to give a total and a currentValue as parametes and also add the starting point 0 after the function. Do not reassign the parameters we have stated, create new ones and just modify the return. */
+
+  const sumTotals = cart.reduce((total, currentValue) => {
+    var newCurrentValue = currentValue.price * currentValue.kilos;
+
+    return total + newCurrentValue;
+  }, 0);
+
   return (
     <>
       <Layout>
         <CartIntro>
-          <p>Your shopping cart</p>
+          <p className="title">Your shopping cart</p>
         </CartIntro>
         <CartInfo>
           {/* We use the cart map to map over our cart and return the specific cartValues that we wanted*/}
           {/* This is where we first make index available */}
           {cart.map(function (cartValue, index) {
-            var itemTotal = cartValue.price * cartValue.kilos;
-            var price = cartValue.price;
-            /*
-            price.forEach(function updateCartTotal(price, index) {
-              for (var i = 0; i < cart.length; i++) {
-                return price.index + price.index++;
-              }
-            });
-          */
-
             return (
               <>
                 <p className="totalCart">
@@ -155,11 +175,11 @@ export default function Cart(props) {
                     {cartValue.kilos} /kgs{' '}
                   </p>
                   <p className="productPrice">
-                    <span>Product price:</span> {price}€
+                    <span>Product price:</span> {cartValue.price}€
                   </p>
                   <p className="cartMultiply">
                     <span>Total price: </span>
-                    {`${itemTotal} € `}
+                    {`${cartValue.kilos * cartValue.price} € `}
                   </p>
                   {/*We need to pass index (that is the position of our deletedArticle) to the function to be able to make it available and compare to our new filtered index*/}
                   <button className="x" onClick={() => deleteArticle(index)}>
@@ -170,8 +190,9 @@ export default function Cart(props) {
               </>
             );
           })}
+          {/* 3. Show the variable */}
           <TotalPrice>
-            <p>Total sum: </p>
+            <p>Total sum: {sumTotals}€ </p>
           </TotalPrice>
         </CartInfo>
         <Button className="payNow" onClick={payNow}>

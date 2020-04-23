@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 const Container = styled.div`
   img {
-    margin-top: -50px;
     margin-right: -10px;
     float: right;
     width: 500px;
@@ -10,7 +9,7 @@ const Container = styled.div`
     object-fit: cover;
   }
   h1 {
-    margin-top: 140px;
+    margin-top: 80px;
     margin-left: 100px;
     font-size: 80px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
@@ -22,7 +21,7 @@ const Container = styled.div`
   h2 {
     margin-left: 100px;
     margin-right: 700px;
-    margin-top: 100px;
+    margin-top: 80px;
     font-size: 40px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
       'Lucida Sans', Arial, sans-serif;
@@ -38,7 +37,7 @@ const BreakLine = styled.div`
   }
 `;
 
-const Main = props => (
+const Main = (props) => (
   <>
     <div>
       <Container>
