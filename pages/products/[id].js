@@ -7,7 +7,7 @@ import React, { useState } from 'react';
 
 const Container = styled.div`
   display: flex;
-  margin-top: 50px;
+  margin-top: 30px;
 `;
 
 const Image = styled.img`
@@ -16,7 +16,7 @@ const Image = styled.img`
   object-fit: cover;
   border-radius: 3px;
   width: 500px;
-  height: 370px;
+  height: 362px;
   border: 3px solid #eecc09;
 `;
 
@@ -66,13 +66,24 @@ const Button = styled.button`
   padding: 7px;
   font-size: 21px;
   margin-left: 110px;
-  margin-top: 0px;
+  margin-top: -10px;
+  
+  cursor: pointer;
+
+  :hover {
+    background-color: #ffffff;
+    color: #eecc09;
+    border: 2px solid #eecc09;
+  }
+  :focus {
+    outline-color: #ffffff;
+  }
 `;
 
 export default function Product(props) {
   /*We create a variable to call the useRouter() function below*/
   const Router = useRouter();
-  const [kilos, setKilos] = useState(1);
+  const [kilos, setKilos] = useState();
 
   const product = props.product;
 

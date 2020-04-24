@@ -101,12 +101,16 @@ const Price = styled.p`
     border: 2px solid;
     margin-left: 130px;
     margin-top: 5px;
+    :focus {
+      outline-color: #ffffff;
+    }
   }
 `;
 
 const Button = styled.button`
   margin-left: 35px;
   margin-bottom: 10px;
+  text-decoration: none;
   background: none;
   border: none;
   border-radius: 8px;
@@ -117,10 +121,21 @@ const Button = styled.button`
   color: #ffffff;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
     'Lucida Sans', Arial, sans-serif;
+
+  cursor: pointer;
+
+  :hover {
+    background-color: #ffffff;
+    color: #eecc09;
+    border: 2px solid #eecc09;
+  }
+  :focus {
+    outline-color: #ffffff;
+  }
 `;
 
 export default function Products(props) {
-  const [kilos, setKilos] = useState(1);
+  const [kilos, setKilos] = useState();
   const Router = useRouter();
 
   function handleChange(evt) {
@@ -177,10 +192,13 @@ export default function Products(props) {
                 </select>
               </>
             </Price>
+            <Link href={`/products/${product.id}`}>
+              <Button className="readMoreButton">Read More</Button>
+            </Link>
 
-            <Button href={`/products/${product.id}`} className="readMore">
-              <Link href={`/products/${product.id}`}>Read More </Link>
-            </Button>
+            {/*<Button className="readMoreButton">
+              <Link href={`/products/${product.id}`}>Read More</Link>
+            </Button>*/}
             {/*In order to use props in my handleClick function without it being called before onClick, I have put my function call in another function */}
             <Button
               onClick={() => handleClick(product, index)}

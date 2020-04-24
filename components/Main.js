@@ -21,7 +21,7 @@ const Container = styled.div`
   h2 {
     margin-left: 100px;
     margin-right: 700px;
-    margin-top: 80px;
+    margin-top: 35px;
     font-size: 40px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
       'Lucida Sans', Arial, sans-serif;
@@ -43,7 +43,7 @@ const Main = (props) => (
       <Container>
         <img src="/images/team.jpg" alt="informalteampic" />
         <h1 className="title">
-          We love <span>cheese</span>!
+          We love <span>cheese</span>.
         </h1>
         <h2>
           This is why we bring to you the possibility of having the world’s best

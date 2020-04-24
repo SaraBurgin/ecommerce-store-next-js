@@ -3,10 +3,11 @@ import cookies from 'next-cookies';
 import styled from 'styled-components';
 import Cookies from 'js-cookie';
 import { useRouter } from 'next/router';
+import React, { useState } from 'react';
 
 const CartIntro = styled.p`
   margin-top: 50px;
-  margin-left: 325px;
+  margin-left: 300px;
   margin-bottom: 30px;
   width: 375px;
 
@@ -25,15 +26,14 @@ const CartIntro = styled.p`
 const CartInfo = styled.div`
   .totalCart {
     display: grid;
-    grid-template-columns: 300px 125px 180px 190px 40px;
+    grid-template-columns: 295px 125px 70px 180px 175px 40px;
     border-top: 2px solid #eecc09;
     border-bottom: 2px solid #eecc09;
-    width: 825px;
-    margin-left: 320px;
+    width: 875px;
+    margin-left: 300px;
     color: #737373;
   }
   .cartName {
-    margin-right: 30px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
       'Lucida Sans', Arial, sans-serif;
     span {
@@ -42,11 +42,25 @@ const CartInfo = styled.div`
   }
 
   .cartKilos {
-    margin-right: 30px;
+    margin-right: 20px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
       'Lucida Sans', Arial, sans-serif;
     span {
       font-weight: bold;
+    }
+  }
+  .inputbox {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+      'Lucida Sans', Arial, sans-serif;
+    color: #eecc09;
+    font-size: 13px;
+    width: 55px;
+    height: 30px;
+    border: 2px solid;
+    margin-left: -23px;
+    margin-top: 12px;
+    :focus {
+      outline-color: #ffffff;
     }
   }
   .productPrice {
@@ -69,10 +83,21 @@ const CartInfo = styled.div`
     align-self: center;
     width: 30px;
     height: 30px;
-    background-color: #ffffff;
     color: #ffffff;
     background-color: #eecc09;
     border-radius: 7px;
+
+    cursor: pointer;
+
+    :hover {
+      background-color: #ffffff;
+      border: solid 2px #eecc09;
+    }
+
+    :focus {
+      outline-color: #ffffff;
+    }
+
     p {
       margin-top: 4px;
       color: #737373;
@@ -80,6 +105,9 @@ const CartInfo = styled.div`
       font-size: 15px;
       font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
         'Lucida Sans', Arial, sans-serif;
+      :hover {
+        color: #eecc09;
+      }
     }
   }
 `;
@@ -101,7 +129,15 @@ const Button = styled.button`
   border-radius: 8px;
   padding: 7px;
   font-size: 21px;
-  margin-left: 630px;
+  margin-left: 635px;
+  :hover {
+    background-color: #ffffff;
+    color: #eecc09;
+    border: 2px solid #eecc09;
+  }
+  :focus {
+    outline-color: #ffffff;
+  }
   p {
     margin-top: 5px;
   }
@@ -110,7 +146,23 @@ const Button = styled.button`
 export default function Cart(props) {
   /* Here we assing the value of props.cart to a new variable*/
   const cart = props.cart;
+  /*const product = props.product;*/
   const Router = useRouter();
+  const [kilos, setKilos] = useState();
+
+  function handleChange(evt) {
+    setKilos(evt.target.value);
+    return <>{handleKilos()};</>;
+  }
+
+  function handleKilos() {
+    cart.map(function (cartValue) {
+      const newCart2 = cartValue.filter(function () {});
+    });
+
+    Cookies.set('cart', newCart2);
+    window.location.reload();
+  }
 
   function deleteArticle(index) {
     /*We use filter to go through the products in my cart array and filter by index the one I want to delete*/
@@ -174,6 +226,14 @@ export default function Cart(props) {
                     <span>Kilos: </span>
                     {cartValue.kilos} /kgs{' '}
                   </p>
+                  {/* <select onChange={() => handleChange() => handleKilos} className="inputbox"> */}
+                  <select onChange={handleChange} className="inputbox">
+                    <option value="1">1kg</option>
+                    <option value="2">2kg </option>
+                    <option value="3">3kg </option>
+                    <option value="4">4kg </option>
+                    <option value="5">5kg </option>
+                  </select>
                   <p className="productPrice">
                     <span>Product price:</span> {cartValue.price}€
                   </p>
@@ -196,7 +256,7 @@ export default function Cart(props) {
           </TotalPrice>
         </CartInfo>
         <Button className="payNow" onClick={payNow}>
-          <p>Pay Now!</p>
+          <p>Continue</p>
         </Button>
       </Layout>
     </>
