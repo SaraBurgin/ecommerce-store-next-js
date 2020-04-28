@@ -9,7 +9,6 @@ const Thankyou = styled.div`
   margin-left: 300px;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
     'Lucida Sans', Arial, sans-serif;
-
   .linkType {
     text-decoration-line: none;
   }

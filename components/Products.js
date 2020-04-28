@@ -14,7 +14,6 @@ const ProductPPT = styled.div`
     font-weight: bold;
     text-align: center;
   }
-
   h1 span {
     color: #eecc09;
   }
@@ -81,7 +80,6 @@ const Price = styled.p`
   height: 40px;
   padding: 10px;
   align-items: stretch;
-
   .price {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
       'Lucida Sans', Arial, sans-serif;
@@ -121,9 +119,7 @@ const Button = styled.button`
   color: #ffffff;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
     'Lucida Sans', Arial, sans-serif;
-
   cursor: pointer;
-
   :hover {
     background-color: #ffffff;
     color: #eecc09;
@@ -135,15 +131,48 @@ const Button = styled.button`
 `;
 
 export default function Products(props) {
-  const [kilos, setKilos] = useState();
+  const [kilos, setKilos] = useState(1);
   const Router = useRouter();
 
   function handleChange(evt) {
-    setKilos(evt.target.value);
+    setKilos(parseInt(evt.target.value));
   }
 
-  function handleClick(product, index) {
+  function handleClick(product) {
     let cart;
+    if (Cookies.get('cart') !== undefined) {
+      cart = JSON.parse(Cookies.get('cart'));
+    }
+    const possibleProduct = cart.find((p) => product.id === p.id);
+    if (possibleProduct) {
+      const newKilos = possibleProduct.kilos + kilos;
+      const newProduct = {
+        ...possibleProduct,
+        kilos: newKilos,
+      };
+      const newCart = [
+        ...cart.filter((p) => p.id !== newProduct.id),
+        newProduct,
+      ];
+      Cookies.set('cart', newCart);
+    } else {
+      const cookieValue = [
+        ...cart,
+        {
+          id: product.id,
+          kilos: kilos,
+          name: product.name,
+          price: product.price,
+          image: product.image,
+        },
+      ];
+      Cookies.set('cart', cookieValue);
+    }
+    Router.push('/cart');
+  }
+
+  /*function handleClick(product) {
+    let cart = [];
 
     if (Cookies.get('cart') !== undefined) {
       cart = JSON.parse(Cookies.get('cart'));
@@ -161,9 +190,10 @@ export default function Products(props) {
         image: product.image,
       },
     ];
+
     Cookies.set('cart', cookieValue);
     Router.push('/cart');
-  }
+  }*/
   return (
     <>
       <ProductPPT>
@@ -195,10 +225,6 @@ export default function Products(props) {
             <Link href={`/products/${product.id}`}>
               <Button className="readMoreButton">Read More</Button>
             </Link>
-
-            {/*<Button className="readMoreButton">
-              <Link href={`/products/${product.id}`}>Read More</Link>
-            </Button>*/}
             {/*In order to use props in my handleClick function without it being called before onClick, I have put my function call in another function */}
             <Button
               onClick={() => handleClick(product, index)}

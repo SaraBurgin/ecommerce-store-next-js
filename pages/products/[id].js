@@ -67,9 +67,8 @@ const Button = styled.button`
   font-size: 21px;
   margin-left: 110px;
   margin-top: -10px;
-  
-  cursor: pointer;
 
+  cursor: pointer;
   :hover {
     background-color: #ffffff;
     color: #eecc09;
@@ -83,37 +82,51 @@ const Button = styled.button`
 export default function Product(props) {
   /*We create a variable to call the useRouter() function below*/
   const Router = useRouter();
-  const [kilos, setKilos] = useState();
+  const [kilos, setKilos] = useState(1);
 
   const product = props.product;
 
   function handleChange(evt) {
-    setKilos(evt.target.value);
+    /*It is important to parseInt because the value we get back from evt.target.value is a string not a number and in our function below it wouldn't be able to sum otherwise */
+    setKilos(parseInt(evt.target.value));
   }
 
   function handleClick() {
-    let cart;
-    /* With JSON.parse we turn our cookie string in to an array and store all it's information in a new variable named cart. It is important we use this if statement because JSON.parse turns a string into an array but if there is no string it cannot turn it to an object*/
+    let cart = [];
+    /* With JSON.parse we turn our cookie string in to an array and store all it's information in a new variable named cart. It is important we use this if statement because JSON.parse turns a string into an object (array) but if there is no string it cannot do it */
     if (Cookies.get('cart') !== undefined) {
       cart = JSON.parse(Cookies.get('cart'));
-    } else {
-      cart = [];
     }
-
-    const cookieValue = [
-      /* ...cart is used so that we show ALL the information that is stored in cookies, not just the last one*/
-      ...cart,
-      {
-        id: product.id,
-        kilos: kilos,
-        name: product.name,
-        price: product.price,
-        image: product.image,
-      },
-    ];
-    /* Setting a cookie means to store the information you specify in your variable*/
-    Cookies.set('cart', cookieValue);
-
+    /* Here a varible is created to store the unique value that will be returned from our find function. Find returns the first value that complies with our stated condition product id === p id*/
+    const equalProduct = cart.find((p) => product.id === p.id);
+    /* With our if statement we say, if equalProduct is true, execute the following. With new kilos we update the kilos already in cart to add to the existing ones and with newProduct we display all properties and values in equalProduct and update kilos to the newKilos amount*/
+    if (equalProduct) {
+      const newKilos = equalProduct.kilos + kilos;
+      const newProduct = {
+        ...equalProduct,
+        kilos: newKilos,
+      };
+      /* In newCart we are saying: get the old cart, filter through it and return all elements in which the id is NOT equal to newProduct.id, and then we add newProduct. */
+      const newCart = [
+        ...cart.filter((p) => p.id !== newProduct.id),
+        newProduct,
+      ];
+      Cookies.set('cart', newCart);
+    } else {
+      const cookieValue = [
+        /* ...cart is used so that we show ALL the information that is stored in cookies, not just the last one*/
+        ...cart,
+        {
+          id: product.id,
+          kilos: kilos,
+          name: product.name,
+          price: product.price,
+          image: product.image,
+        },
+      ];
+      /* Setting a cookie means to store the information you specify in your variable*/
+      Cookies.set('cart', cookieValue);
+    }
     /* Router push takes you to the page you specify*/
     Router.push('/cart');
   }
@@ -121,6 +134,7 @@ export default function Product(props) {
   if (product === undefined) {
     return <div> Error in the system</div>;
   }
+
   return (
     <>
       <Layout>

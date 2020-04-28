@@ -19,7 +19,7 @@ const products = [
   },
 ];
 
-exports.up = async function(sql) {
+exports.up = async function (sql) {
   console.log('Inserting products in to products table...');
 
   await sql`
@@ -27,11 +27,10 @@ exports.up = async function(sql) {
   `;
 };
 
-exports.down = async function(sql) {
+exports.down = async function (sql) {
   console.log('Deleting products from products table...');
   await sql`
     DELETE from products
-      WHERE name in (${products.map(product => product.name)});
-
+      WHERE name in (${products.map((product) => product.name)});
   `;
 };

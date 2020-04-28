@@ -120,7 +120,7 @@ const Header = () => {
   if (typeof window !== 'undefined') {
     cartLength = JSON.parse(Cookies.get('cart')).length;
   } else {
-    cartLength = '';
+    cartLength = [0];
   }
 
   return (

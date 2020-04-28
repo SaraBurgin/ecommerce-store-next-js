@@ -10,7 +10,6 @@ const CartIntro = styled.p`
   margin-left: 300px;
   margin-bottom: 30px;
   width: 375px;
-
   .title {
     color: #737373;
     font-weight: bold;
@@ -40,7 +39,6 @@ const CartInfo = styled.div`
       font-weight: bold;
     }
   }
-
   .cartKilos {
     margin-right: 20px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
@@ -71,7 +69,6 @@ const CartInfo = styled.div`
       font-weight: bold;
     }
   }
-
   .cartMultiply {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
       'Lucida Sans', Arial, sans-serif;
@@ -86,18 +83,14 @@ const CartInfo = styled.div`
     color: #ffffff;
     background-color: #eecc09;
     border-radius: 7px;
-
     cursor: pointer;
-
     :hover {
       background-color: #ffffff;
       border: solid 2px #eecc09;
     }
-
     :focus {
       outline-color: #ffffff;
     }
-
     p {
       margin-top: 4px;
       color: #737373;
@@ -152,16 +145,6 @@ export default function Cart(props) {
 
   function handleChange(evt) {
     setKilos(evt.target.value);
-    return <>{handleKilos()};</>;
-  }
-
-  function handleKilos() {
-    cart.map(function (cartValue) {
-      const newCart2 = cartValue.filter(function () {});
-    });
-
-    Cookies.set('cart', newCart2);
-    window.location.reload();
   }
 
   function deleteArticle(index) {
@@ -189,7 +172,6 @@ export default function Cart(props) {
   /*const cartTotals = cart.map(function (cartTotal) {
     return parseInt(`${cartTotal.kilos * cartTotal.price} `);
   });
-
   const sumTotals = cartTotals.reduce((total, currentValue) => {
     console.log(total);
     return total + currentValue;
@@ -226,7 +208,6 @@ export default function Cart(props) {
                     <span>Kilos: </span>
                     {cartValue.kilos} /kgs{' '}
                   </p>
-                  {/* <select onChange={() => handleChange() => handleKilos} className="inputbox"> */}
                   <select onChange={handleChange} className="inputbox">
                     <option value="1">1kg</option>
                     <option value="2">2kg </option>
