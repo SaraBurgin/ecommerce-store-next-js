@@ -171,20 +171,15 @@ export default function Cart(props) {
     setKilos(evt.target.value);
   }*/
 
-  /* When onClick I create a varibale cartKiloByI returning the value of cartValueIndex to  */
-  function handleUpClick() {
+  /* When onClick I create a varibale cartKiloByI returning the value of cartValueIndex to */
+  function handleUpClick(index) {
     var cartKiloByI = cart.forEach((cartValue, cartValueIndex) => {
-      /*for (cartValueIndex = 0, cartValueIndex < 3)*/ {
-        var cartSum = cartValue.kilos + 1;
-
-        console.log(cartValueIndex);
-        /* cartValueIndex es 0 1 2, 0 1 2... typeOf number*/
+      if (index !== cartValueIndex) {
+        return cartValue.kilos;
       }
+      console.log(cartValue.kilos);
     });
   }
-  /*for (i = 0, n > cartKiloByI, i++) {
-      return Math.sum(cartKiloByI + 1); 
-    }*/
 
   function handleDownClick() {}
 
