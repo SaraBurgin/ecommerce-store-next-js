@@ -67,7 +67,6 @@ const Button = styled.button`
   font-size: 21px;
   margin-left: 110px;
   margin-top: -10px;
-
   cursor: pointer;
   :hover {
     background-color: #ffffff;

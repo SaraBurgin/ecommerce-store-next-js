@@ -40,25 +40,49 @@ const CartInfo = styled.div`
     }
   }
   .cartKilos {
-    margin-right: 20px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
       'Lucida Sans', Arial, sans-serif;
     span {
       font-weight: bold;
     }
   }
-  .inputbox {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-      'Lucida Sans', Arial, sans-serif;
-    color: #eecc09;
-    font-size: 13px;
-    width: 55px;
-    height: 30px;
-    border: 2px solid;
-    margin-left: -23px;
-    margin-top: 12px;
-    :focus {
-      outline-color: #ffffff;
+  div {
+    display: grid;
+    grid-template-rows: 18px 18px;
+    grid-gap: 2px;
+    width: 40px;
+    margin-top: 7px;
+    margin-left: -25px;
+
+    .up {
+      color: #eecc09;
+      border: 2px solid #eecc09;
+      border-radius: 3px;
+      font-weight: bold;
+      font-size: 10px;
+      :focus {
+        outline-color: #ffffff;
+      }
+      :hover {
+        background-color: #eecc09;
+        border: solid 2px #737373;
+        color: #ffffff;
+      }
+    }
+    .down {
+      color: #eecc09;
+      border: 2px solid #eecc09;
+      border-radius: 3px;
+      font-weight: bold;
+      font-size: 10px;
+      :focus {
+        outline-color: #ffffff;
+      }
+      :hover {
+        background-color: #eecc09;
+        border: solid 2px #737373;
+        color: #ffffff;
+      }
     }
   }
   .productPrice {
@@ -143,9 +167,26 @@ export default function Cart(props) {
   const Router = useRouter();
   const [kilos, setKilos] = useState();
 
-  function handleChange(evt) {
+  /*function handleChange(evt) {
     setKilos(evt.target.value);
+  }*/
+
+  /* When onClick I create a varibale cartKiloByI returning the value of cartValueIndex to  */
+  function handleUpClick() {
+    var cartKiloByI = cart.forEach((cartValue, cartValueIndex) => {
+      /*for (cartValueIndex = 0, cartValueIndex < 3)*/ {
+        var cartSum = cartValue.kilos + 1;
+
+        console.log(cartValueIndex);
+        /* cartValueIndex es 0 1 2, 0 1 2... typeOf number*/
+      }
+    });
   }
+  /*for (i = 0, n > cartKiloByI, i++) {
+      return Math.sum(cartKiloByI + 1); 
+    }*/
+
+  function handleDownClick() {}
 
   function deleteArticle(index) {
     /*We use filter to go through the products in my cart array and filter by index the one I want to delete*/
@@ -208,13 +249,14 @@ export default function Cart(props) {
                     <span>Kilos: </span>
                     {cartValue.kilos} /kgs{' '}
                   </p>
-                  <select onChange={handleChange} className="inputbox">
-                    <option value="1">1kg</option>
-                    <option value="2">2kg </option>
-                    <option value="3">3kg </option>
-                    <option value="4">4kg </option>
-                    <option value="5">5kg </option>
-                  </select>
+                  <div>
+                    <button className="up" onClick={() => handleUpClick(index)}>
+                      ↑
+                    </button>
+                    <button className="down" onClick={handleDownClick}>
+                      ↓
+                    </button>
+                  </div>
                   <p className="productPrice">
                     <span>Product price:</span> {cartValue.price}€
                   </p>

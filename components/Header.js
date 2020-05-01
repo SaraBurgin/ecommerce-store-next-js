@@ -115,9 +115,12 @@ const ShoppingCart = styled.div`
 
 const Header = () => {
   /* Create a variable with a default value of the number of items in the cart*/
-  let cartLength = '';
-  /*The if statement is checking if we are in the browser because we can only access cookies from the browser */
-  if (typeof window !== 'undefined') {
+  let cartLength = [0];
+  /*The if statement is checking if we are in the browser because we can only access cookies from the browser and checking that the cart isn't empty */
+  if (
+    typeof window !== 'undefined' &&
+    JSON.parse(Cookies.get('cart')).length !== 0
+  ) {
     cartLength = JSON.parse(Cookies.get('cart')).length;
   } else {
     cartLength = [0];

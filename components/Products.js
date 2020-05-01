@@ -139,17 +139,21 @@ export default function Products(props) {
   }
 
   function handleClick(product) {
-    let cart;
+    let cart = [];
+    /* With JSON.parse we turn our cookie string in to an array and store all it's information in a new variable named cart. It is important we use this if statement because JSON.parse turns a string into an object (array) but if there is no string it cannot do it */
     if (Cookies.get('cart') !== undefined) {
       cart = JSON.parse(Cookies.get('cart'));
     }
-    const possibleProduct = cart.find((p) => product.id === p.id);
-    if (possibleProduct) {
-      const newKilos = possibleProduct.kilos + kilos;
+    /* Here a varible is created to store the unique value that will be returned from our find function. Find returns the first value that complies with our stated condition product id === p id*/
+    const equalProduct = cart.find((p) => product.id === p.id);
+    /* With our if statement we say, if equalProduct is true, execute the following. With new kilos we update the kilos already in cart to add to the existing ones and with newProduct we display all properties and values in equalProduct and update kilos to the newKilos amount*/
+    if (equalProduct) {
+      const newKilos = equalProduct.kilos + kilos;
       const newProduct = {
-        ...possibleProduct,
+        ...equalProduct,
         kilos: newKilos,
       };
+      /* In newCart we are saying: get the old cart, filter through it and return all elements in which the id is NOT equal to newProduct.id, and then we add newProduct. */
       const newCart = [
         ...cart.filter((p) => p.id !== newProduct.id),
         newProduct,
@@ -157,6 +161,7 @@ export default function Products(props) {
       Cookies.set('cart', newCart);
     } else {
       const cookieValue = [
+        /* ...cart is used so that we show ALL the information that is stored in cookies, not just the last one*/
         ...cart,
         {
           id: product.id,
@@ -166,34 +171,13 @@ export default function Products(props) {
           image: product.image,
         },
       ];
+      /* Setting a cookie means to store the information you specify in your variable*/
       Cookies.set('cart', cookieValue);
     }
+    /* Router push takes you to the page you specify*/
     Router.push('/cart');
   }
 
-  /*function handleClick(product) {
-    let cart = [];
-
-    if (Cookies.get('cart') !== undefined) {
-      cart = JSON.parse(Cookies.get('cart'));
-    } else {
-      cart = [];
-    }
-
-    const cookieValue = [
-      ...cart,
-      {
-        id: product.id,
-        kilos: kilos,
-        name: product.name,
-        price: product.price,
-        image: product.image,
-      },
-    ];
-
-    Cookies.set('cart', cookieValue);
-    Router.push('/cart');
-  }*/
   return (
     <>
       <ProductPPT>
