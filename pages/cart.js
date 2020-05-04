@@ -52,7 +52,7 @@ const CartInfo = styled.div`
     grid-gap: 2px;
     width: 40px;
     margin-top: 7px;
-    margin-left: -25px;
+    margin-left: -22px;
 
     .up {
       color: #eecc09;
@@ -165,37 +165,106 @@ export default function Cart(props) {
   const cart = props.cart;
   /*const product = props.product;*/
   const Router = useRouter();
-  const [kilos, setKilos] = useState();
+  /*const [kilos, setKilos] = useState();*/
 
-  /*function handleChange(evt) {
-    setKilos(evt.target.value);
-  }*/
-
-  /* When onClick I create a varibale cartKiloByI returning the value of cartValueIndex to */
-  function handleUpClick(index) {
-    var cartKiloByI = cart.forEach((cartValue, cartValueIndex) => {
-      if (index !== cartValueIndex) {
-        return cartValue.kilos;
-      }
-      console.log(cartValue.kilos);
-    });
+  if (cart === null) {
+    return (
+      <Layout>
+        <div className="Empty">
+          <h2>SHOPPING CART IS EMPTY </h2>
+          <p>Your shopping cart is empty</p>
+          <p>
+            To continue shopping please
+            <Link href="/#Products">
+              <a>Click here </a>
+            </Link>
+          </p>
+        </div>
+      </Layout>
+    );
   }
 
-  function handleDownClick() {}
+  function handleUpClick(cartValue, index) {
+    var clickedItem = cart.find(
+      (cartItem, cartItemIndex) => index === cartItemIndex,
+    );
+
+    if (clickedItem) {
+      const newKilos = clickedItem.kilos + 1;
+      const newProduct = {
+        ...clickedItem,
+        kilos: newKilos,
+      };
+
+      const newCart = [
+        ...cart.filter((p) => p.id !== newProduct.id),
+        newProduct,
+      ];
+
+      Cookies.set('cart', newCart);
+      window.location.reload();
+    } else {
+      const cookieValue = [
+        ...cart,
+        {
+          id: cartValue.id,
+          kilos: kilos,
+          name: cartValue.name,
+          price: cartValue.price,
+          image: cartValue.image,
+        },
+      ];
+      Cookies.set('cart', cookieValue);
+    }
+  }
+
+  function handleDownClick(cartValue, index) {
+    var clickedItem = cart.find(
+      (cartItem, cartItemIndex) => index === cartItemIndex,
+    );
+
+    if (clickedItem) {
+      const newKilos = clickedItem.kilos - 1;
+      const newProduct = {
+        ...clickedItem,
+        kilos: newKilos,
+      };
+
+      const newCart = [
+        ...cart.filter((p) => p.id !== newProduct.id),
+        newProduct,
+      ];
+
+      Cookies.set('cart', newCart);
+      window.location.reload();
+    } else {
+      const cookieValue = [
+        ...cart,
+        {
+          id: cartValue.id,
+          kilos: kilos,
+          name: cartValue.name,
+          price: cartValue.price,
+          image: cartValue.image,
+        },
+      ];
+      Cookies.set('cart', cookieValue);
+    }
+  }
 
   function deleteArticle(index) {
     /*We use filter to go through the products in my cart array and filter by index the one I want to delete*/
     /*We need cartValue even though we don't use it because of the position of parameters */
-    const newCart = cart.filter(function (cartValue, cartValueIndex) {
+    const newCart = cart.filter(function (cartItem, cartItemIndex) {
       /*When we return false this means it will no longer be in the array. This is where we compare our index from deletedArticle to our filtered Item */
-      if (index === cartValueIndex) {
+      if (index === cartItemIndex) {
         return false;
       } else {
         return true;
       }
     });
     /*Delete our filtered item from our cookies with Cookies.set and reload the page so it is deleted*/
-    Cookies.set('cart', newCart);
+    Cookies.set('cart', JSON.stringify(newCart));
     window.location.reload();
   }
 
@@ -245,10 +314,16 @@ export default function Cart(props) {
                     {cartValue.kilos} /kgs{' '}
                   </p>
                   <div>
-                    <button className="up" onClick={() => handleUpClick(index)}>
+                    <button
+                      className="up"
+                      onClick={() => handleUpClick(cartValue, index)}
+                    >
                       ↑
                     </button>
-                    <button className="down" onClick={handleDownClick}>
+                    <button
+                      className="down"
+                      onClick={() => handleDownClick(cartValue, index)}
+                    >
                       ↓
                     </button>
                   </div>

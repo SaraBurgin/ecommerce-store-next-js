@@ -98,6 +98,7 @@ export default function Product(props) {
     }
     /* Here a varible is created to store the unique value that will be returned from our find function. Find returns the first value that complies with our stated condition product id === p id*/
     const equalProduct = cart.find((p) => product.id === p.id);
+
     /* With our if statement we say, if equalProduct is true, execute the following. With new kilos we update the kilos already in cart to add to the existing ones and with newProduct we display all properties and values in equalProduct and update kilos to the newKilos amount*/
     if (equalProduct) {
       const newKilos = equalProduct.kilos + kilos;
@@ -111,6 +112,7 @@ export default function Product(props) {
         newProduct,
       ];
       Cookies.set('cart', newCart);
+      Router.push('/cart');
     } else {
       const cookieValue = [
         /* ...cart is used so that we show ALL the information that is stored in cookies, not just the last one*/
@@ -125,9 +127,10 @@ export default function Product(props) {
       ];
       /* Setting a cookie means to store the information you specify in your variable*/
       Cookies.set('cart', cookieValue);
+
+      /* Router push takes you to the page you specify*/
+      Router.push('/cart');
     }
-    /* Router push takes you to the page you specify*/
-    Router.push('/cart');
   }
 
   if (product === undefined) {

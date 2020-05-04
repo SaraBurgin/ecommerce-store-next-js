@@ -4,7 +4,7 @@ import Cookies from 'js-cookie';
 
 const Logo = styled.div`
   img {
-    display: block;
+    display: center;
     margin-left: 605px;
     width: 200px;
   }
@@ -40,7 +40,7 @@ const Navigation = styled.a`
   .home {
     ::after {
       content: '';
-      display: block;
+      display: center;
       background-color: #eecc09;
       height: 3px;
       margin-top: 7px;
@@ -54,7 +54,7 @@ const Navigation = styled.a`
   .productsNav {
     ::after {
       content: '';
-      display: block;
+      display: center;
       background-color: #eecc09;
       height: 3px;
       margin-top: 7px;
@@ -68,7 +68,7 @@ const Navigation = styled.a`
   .theTeam {
     ::after {
       content: '';
-      display: block;
+      display: center;
       background-color: #eecc09;
       height: 3px;
       margin-top: 7px;
@@ -82,7 +82,7 @@ const Navigation = styled.a`
   .contact {
     ::after {
       content: '';
-      display: block;
+      display: center;
       background-color: #eecc09;
       height: 3px;
       margin-top: 7px;
@@ -94,54 +94,74 @@ const Navigation = styled.a`
     }
   }
 `;
-const ShoppingCart = styled.div`
-  p {
-    position: absolute;
+
+const CartBubble = styled.div`
+  display: grid;
+  grid-template-columns: 20px 5px 5px 5px;
+  grid-gap: 2px;
+  margin-left: 1250px;
+  margin-top: -50px;
+
+  .zero {
+    width: 30px;
+    margin-top: -100px;
+  }
+  .one {
     color: #737373;
     font-size: 15px;
-    top: 25px;
-    right: 18px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
       'Lucida Sans', Arial, sans-serif;
+    margin-top: -70px;
   }
-
-  img {
-    position: absolute;
-    width: 30px;
-    top: 20px;
-    right: 37px;
+  .two {
+    color: #737373;
+    font-size: 15px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+      'Lucida Sans', Arial, sans-serif;
+    margin-top: -83px;
+  }
+  .three {
+    color: #737373;
+    font-size: 15px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+      'Lucida Sans', Arial, sans-serif;
+    margin-top: -70px;
+    margin-left: 1.25px;
   }
 `;
 
 const Header = () => {
-  /* Create a variable with a default value of the number of items in the cart*/
-  let cartLength = [0];
-  /*The if statement is checking if we are in the browser because we can only access cookies from the browser and checking that the cart isn't empty */
-  if (
-    typeof window !== 'undefined' &&
-    JSON.parse(Cookies.get('cart')).length !== 0
-  ) {
-    cartLength = JSON.parse(Cookies.get('cart')).length;
+  /* Create a variable for the information inside of Cookies 'cart' & define a variable that we will use later for cartLength*/
+  const cookie = Cookies.get('cart');
+  let bubble = null;
+
+  /* If cookie is not undefined then create a new variable cart with the parsed (turned into object) information from cookie (that includes our cart information) & then set cartLength the actual length of the cart*/
+  if (cookie !== undefined) {
+    const cart = JSON.parse(cookie);
+    const cartLength = cart.length;
+
+    /* Here we are modifying cartBubble to include our cartLength variable and making it available outside of our if function */
+    bubble = <p className="cart-length">{`${cartLength}`}</p>;
   } else {
-    cartLength = [0];
+    0;
   }
 
   return (
     <>
+      <Logo>
+        <Link href="/">
+          <img src="/images/logo.png" alt="cheesepic" />
+        </Link>
+      </Logo>
+      <CartBubble>
+        <Link href="../../cart">
+          <img className="zero" src="/images/cart.png" alt="cartpic" />
+        </Link>
+        <p className="one">(</p>
+        <p className="two">{bubble}</p>
+        <p className="three">)</p>
+      </CartBubble>
       <main>
-        <Logo>
-          <Link href="/">
-            <img src="/images/logo.png" alt="cheesepic" />
-          </Link>
-        </Logo>
-        <ShoppingCart>
-          <p>({cartLength})</p>
-          <Link href="../../cart">
-            <a>
-              <img src="/images/cart.png" alt="cartpic" />
-            </a>
-          </Link>
-        </ShoppingCart>
         <BreakLine>
           <hr></hr>
         </BreakLine>

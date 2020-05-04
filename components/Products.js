@@ -133,6 +133,7 @@ const Button = styled.button`
 export default function Products(props) {
   const [kilos, setKilos] = useState(1);
   const Router = useRouter();
+  const products = props.products;
 
   function handleChange(evt) {
     setKilos(parseInt(evt.target.value));
@@ -140,16 +141,18 @@ export default function Products(props) {
 
   function handleClick(product) {
     let cart = [];
+
     /* With JSON.parse we turn our cookie string in to an array and store all it's information in a new variable named cart. It is important we use this if statement because JSON.parse turns a string into an object (array) but if there is no string it cannot do it */
     if (Cookies.get('cart') !== undefined) {
       cart = JSON.parse(Cookies.get('cart'));
     }
     /* Here a varible is created to store the unique value that will be returned from our find function. Find returns the first value that complies with our stated condition product id === p id*/
     const equalProduct = cart.find((p) => product.id === p.id);
+
     /* With our if statement we say, if equalProduct is true, execute the following. With new kilos we update the kilos already in cart to add to the existing ones and with newProduct we display all properties and values in equalProduct and update kilos to the newKilos amount*/
     if (equalProduct) {
-      const newKilos = equalProduct.kilos + kilos;
-      const newProduct = {
+      var newKilos = equalProduct.kilos + kilos;
+      var newProduct = {
         ...equalProduct,
         kilos: newKilos,
       };
@@ -158,10 +161,13 @@ export default function Products(props) {
         ...cart.filter((p) => p.id !== newProduct.id),
         newProduct,
       ];
+      /* ...cart is used so that we show ALL the information that is stored in cookies, not just the last one*/
+      /* Setting a cookie means to store the information you specify in your variable*/
       Cookies.set('cart', newCart);
+      Router.push('/cart');
+      /* Router push takes you to the page you specify*/
     } else {
       const cookieValue = [
-        /* ...cart is used so that we show ALL the information that is stored in cookies, not just the last one*/
         ...cart,
         {
           id: product.id,
@@ -171,11 +177,13 @@ export default function Products(props) {
           image: product.image,
         },
       ];
-      /* Setting a cookie means to store the information you specify in your variable*/
       Cookies.set('cart', cookieValue);
+      Router.push('/cart');
     }
-    /* Router push takes you to the page you specify*/
-    Router.push('/cart');
+  }
+
+  if (products === undefined) {
+    return <div>Error in the system</div>;
   }
 
   return (
