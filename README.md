@@ -7,20 +7,20 @@ yarn dev
 ```
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## STEPS TO DEVELOPMENT
+## Steps to Development
 
-### COME UP WITH BUSINESS IDEA
+### Coming Up with Business Idea
   - Plan and pick the products you will sell and why
   - Decide the name of site
 
-### DESIGN
+### Design
   - Set the colour scheme for the website
   - Select typography for titles, different types of text, etc..
   - Create the logo with Canva
   - Select images for the website
   - Plan the structure while Wireframing with Figma: https://www.figma.com/file/nwCpIVRGUmobZAVRAshVt3/eCommerce-store?node-id=0%3A1
   
-### DEVELOPMENT
+### Development
   - Create a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`]
     (https://github.com/zeit/next.js/tree/canary/packages/create-next-app)
   - Research for content
@@ -33,7 +33,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
   - JS Cookies for setting and getting cookies
   - Next cookies for getServerSideProps
   
-### ON GOING TODOS
+### On Going TODOS
   - Make web resposive
   - Add product image in cart
   - Maintain position of products in cart when kilos are added
@@ -41,7 +41,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
   - Finish The Team and contact page
   - Include thank you message
 
-### DEPLOYMENT
+### Deployment
   - It is an ongoing project so at the moment it is deployed on Netlify but soon when it is finished I will deploy on Heroku
  
 
