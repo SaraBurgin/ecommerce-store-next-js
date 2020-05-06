@@ -24,7 +24,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
   - Creation of a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`]
     (https://github.com/zeit/next.js/tree/canary/packages/create-next-app)
   - Research for content
-  - Introduction of content and structure creating pages, components 
+  - Introduction of content and structure creating pages and components 
   - Install Styled components and design with CSS
   - Creation of database with PostgreSQL and queries
   - Data modelling of the product object and the cart array
