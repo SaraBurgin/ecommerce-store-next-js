@@ -100,33 +100,35 @@ const CartBubble = styled.div`
   grid-template-columns: 20px 5px 5px 5px;
   grid-gap: 2px;
   margin-left: 1250px;
-  margin-top: -50px;
 
   .zero {
     width: 30px;
-    margin-top: -100px;
+    margin-top: -170px;
+    margin-left: 100px;
   }
   .one {
     color: #737373;
     font-size: 15px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
       'Lucida Sans', Arial, sans-serif;
-    margin-top: -70px;
+    margin-top: -140px;
+    margin-left: 60px;
   }
   .two {
     color: #737373;
     font-size: 15px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
       'Lucida Sans', Arial, sans-serif;
-    margin-top: -83px;
+    margin-top: -153px;
+    margin-left: 59px;
   }
   .three {
     color: #737373;
     font-size: 15px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
       'Lucida Sans', Arial, sans-serif;
-    margin-top: -70px;
-    margin-left: 1.25px;
+    margin-top: -140px;
+    margin-left: 60px;
   }
 `;
 
