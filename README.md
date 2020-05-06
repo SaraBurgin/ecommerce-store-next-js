@@ -14,19 +14,19 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
   - Decide the name of site
 
 ### DESIGN
-  - Setting the colour scheme for the website
-  - Selecting typography for titles, different types of text, etc..
-  - Creation of the logo with Canva
-  - Selection of images
+  - Set the colour scheme for the website
+  - Select typography for titles, different types of text, etc..
+  - Create the logo with Canva
+  - Select images for the website
   - Plan the structure while Wireframing with Figma: https://www.figma.com/file/nwCpIVRGUmobZAVRAshVt3/eCommerce-store?node-id=0%3A1
   
 ### DEVELOPMENT
-  - Creation of a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`]
+  - Create a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`]
     (https://github.com/zeit/next.js/tree/canary/packages/create-next-app)
   - Research for content
-  - Introduction of content and structure creating pages and components 
+  - Introduce content and structure creating pages and components 
   - Install Styled components and design with CSS
-  - Creation of database with PostgreSQL and queries
+  - Create database with PostgreSQL and queries
   - Data modelling of the product object and the cart array
   - Migrations to import the database information to my project
   - Javascript for functionality and interactions
