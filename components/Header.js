@@ -133,17 +133,16 @@ const CartBubble = styled.div`
 `;
 
 const Header = () => {
-  /* Create a variable for the information inside of Cookies 'cart' & define a variable that we will use later for cartLength*/
+  /* Create a variable for the information inside of Cookies 'cart' that we will later use for cartLength*/
   const cookie = Cookies.get('cart');
   let bubble = null;
-
+  
   /* If cookie is not undefined then create a new variable cart with the parsed (turned into object) information from cookie (that includes our cart information) & then set cartLength the actual length of the cart*/
   if (cookie !== undefined) {
     const cart = JSON.parse(cookie);
     const cartLength = cart.length;
-
-    /* Here we are modifying cartBubble to include our cartLength variable and making it available outside of our if function */
-    bubble = <p className="cart-length">{`${cartLength}`}</p>;
+    /* Here we are modifying bubble to include our cartLength variable and making it available outside of our if function. Why do we use {`${...??*/
+    bubble = <p className="cartLength">{`${cartLength}`}</p>;
   } else {
     0;
   }

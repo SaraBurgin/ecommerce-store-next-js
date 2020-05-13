@@ -39,7 +39,7 @@ const RightContainer = styled.div`
     width: 120px;
     position: absolute;
     margin-top: -37px;
-    margin-left: 650px;
+    margin-left: 640px;
   }
 
   h2 {
