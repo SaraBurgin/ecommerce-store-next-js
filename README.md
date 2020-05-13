@@ -42,6 +42,6 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
   - Include thank you message
 
 ### Deployment
-  - It is an ongoing project so at the moment it is deployed on Netlify but soon when it is finished I will deploy on Heroku
+  - It is an ongoing project so at the moment it isn't deployed just yet. It will be deployed on Heroku soon!
  
 
