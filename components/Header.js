@@ -161,7 +161,7 @@ const Header = () => {
         <p className="one">(</p>
         <p className="two">{bubble}</p>
         <p className="three">)</p>
-      </CartBubble>
+      </CartBubble> 
       <main>
         <BreakLine>
           <hr></hr>

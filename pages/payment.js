@@ -109,8 +109,8 @@ const InfoForm = styled.form`
       margin-bottom: 5px;
       }
 `;
-const PaymentForm = styled.form``;
-const PaymentMethod = styled.div``;
+// const PaymentForm = styled.form``;
+// const PaymentMethod = styled.div``;
 
 export default function Payment() {
   return (
@@ -179,7 +179,7 @@ export default function Payment() {
             </div>
           </div>
         </InfoForm>
-        <PaymentMethod>
+        {/* <PaymentMethod>
           <div>
             <p className="data"> PAYMENT METHOD </p>
             <p>Paypal</p>
@@ -228,7 +228,7 @@ export default function Payment() {
               />
             </div>
           </div> */}
-          </PaymentForm> 
+          {/* </PaymentForm>  */}
         <Link href="/thankyou">
           <Button>
             <p className="payNow">Pay now!</p>

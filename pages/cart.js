@@ -266,6 +266,8 @@ export default function Cart(props) {
     /*Delete our filtered item from our cookies with Cookies.set and reload the page so it is deleted*/
     Cookies.set('cart', JSON.stringify(newCart));
     window.location.reload();
+    //I don´t want the order of the products to change in cart. So the id's should stay the same. 
+    /* for(var i = 0; i <= 3; i++) { max = 0; imax = 0; if(mountainH >= max) {mountainH = max; imax = i;}} */
   }
 
   function payNow() {
