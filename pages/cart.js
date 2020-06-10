@@ -5,7 +5,7 @@ import Cookies from 'js-cookie';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 
-const CartIntro = styled.p`
+const CartIntro = styled.div`
   margin-top: 50px;
   margin-left: 300px;
   margin-bottom: 30px;
@@ -26,6 +26,7 @@ const CartInfo = styled.div`
   .totalCart {
     display: grid;
     grid-template-columns: 295px 125px 70px 180px 175px 40px;
+    height: 50px;
     border-top: 2px solid #eecc09;
     border-bottom: 2px solid #eecc09;
     width: 875px;
@@ -48,18 +49,21 @@ const CartInfo = styled.div`
   }
   div {
     display: grid;
-    grid-template-rows: 18px 18px;
+    grid-template-rows: 20px 20px;
     grid-gap: 2px;
-    width: 40px;
-    margin-top: 7px;
+    width: 45px;
+    height: 20px;
+    margin-top: 4.5px;
     margin-left: -22px;
 
     .up {
       color: #eecc09;
       border: 2px solid #eecc09;
       border-radius: 3px;
-      font-weight: bold;
-      font-size: 10px;
+      font-size: 13px;
+      font-weight: bolder;
+      margin-top: -2px;
+      margin-bottom: 1px;
       :focus {
         outline-color: #ffffff;
       }
@@ -73,8 +77,9 @@ const CartInfo = styled.div`
       color: #eecc09;
       border: 2px solid #eecc09;
       border-radius: 3px;
+      font-size: 13px;
       font-weight: bold;
-      font-size: 10px;
+      margin-top: -1px;
       :focus {
         outline-color: #ffffff;
       }
@@ -101,11 +106,13 @@ const CartInfo = styled.div`
     }
   }
   .x {
-    align-self: center;
+    margin-left: -10px;
+    margin-top: 10px;
     width: 30px;
     height: 30px;
     color: #ffffff;
     background-color: #eecc09;
+    border: solid 2px #737373;
     border-radius: 7px;
     cursor: pointer;
     :hover {
@@ -143,6 +150,7 @@ const Button = styled.button`
   color: #ffffff;
   width: 150px;
   height: 50px;
+  border: 2px solid #737373;
   border-radius: 8px;
   padding: 7px;
   font-size: 21px;
@@ -188,7 +196,7 @@ export default function Cart(props) {
     var clickedItem = cart.find(
       (cartItem, cartItemIndex) => index === cartItemIndex,
     );
-
+  
     if (clickedItem) {
       const newKilos = clickedItem.kilos + 1;
       const newProduct = {
@@ -197,8 +205,8 @@ export default function Cart(props) {
       };
 
       const newCart = [
-        ...cart.filter((p) => p.id !== newProduct.id),
         newProduct,
+        ...cart.filter((p) => p.id !== newProduct.id),
       ];
 
       Cookies.set('cart', newCart);
@@ -222,7 +230,7 @@ export default function Cart(props) {
     var clickedItem = cart.find(
       (cartItem, cartItemIndex) => index === cartItemIndex,
     );
-
+    
     if (clickedItem) {
       const newKilos = clickedItem.kilos - 1;
       const newProduct = {
@@ -231,8 +239,8 @@ export default function Cart(props) {
       };
 
       const newCart = [
+        newProduct, 
         ...cart.filter((p) => p.id !== newProduct.id),
-        newProduct,
       ];
 
       Cookies.set('cart', newCart);
@@ -298,16 +306,16 @@ export default function Cart(props) {
   return (
     <>
       <Layout>
-        <CartIntro>
+        <CartIntro >
           <p className="title">Your shopping cart</p>
         </CartIntro>
-        <CartInfo>
+        <CartInfo >
           {/* We use the cart map to map over our cart and return the specific cartValues that we wanted*/}
           {/* This is where we first make index available */}
           {cart.map(function (cartValue, index) {
             return (
               <>
-                <p className="totalCart">
+                <div className="totalCart" key={cartValue.id}>
                   <p className="cartName">
                     <span>Product: </span> {cartValue.name}
                   </p>
@@ -341,13 +349,13 @@ export default function Cart(props) {
                     {' '}
                     <p>x</p>
                   </button>
-                </p>
+                </div>
               </>
             );
           })}
           {/* 3. Show the variable */}
-          <TotalPrice>
-            <p>Total sum: {sumTotals}€ </p>
+          <TotalPrice >
+            Total sum: {sumTotals}€
           </TotalPrice>
         </CartInfo>
         <Button className="payNow" onClick={payNow}>

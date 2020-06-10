@@ -7,7 +7,7 @@ const Index = (props) => (
   <>
     <Layout>
       <div className="container">
-        <Head key="container">
+        <Head >
           <title>Home</title>
           <link rel="icon" href="" />
         </Head>

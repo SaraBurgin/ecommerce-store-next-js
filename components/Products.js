@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import Cookies from 'js-cookie';
 
 const ProductPPT = styled.div`
+@media (max-width: 1440px) {
   h1 {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
       'Lucida Sans', Arial, sans-serif;
@@ -24,12 +25,13 @@ const ProductPPT = styled.div`
     margin-top: 40px;
     font-size: 30px;
   }
+}
 `;
 
 const ProductSelection = styled.div`
   display: inline-flex;
   direction: row;
-  div {
+  .first-div {
     border: 4px solid #eecc09;
     border-radius: 5px;
     margin-left: 50px;
@@ -37,55 +39,56 @@ const ProductSelection = styled.div`
     width: 400px;
     height: 635px;
   }
-`;
-const Image = styled.img`
-  width: 400px;
-  height: 225px;
-  object-fit: cover;
-  margin-bottom: 15px;
-  align-items: center;
-  border-radius: 2px;
-`;
-
-const Name = styled.p`
-  text-align: center;
-  margin-top: 5px;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+  img {
+    width: 400px;
+    height: 225px;
+    object-fit: cover;
+    margin-bottom: 15px;
+    align-items: center;
+    border-radius: 2px;
+  }
+  .name {
+    text-align: center;
+    margin-top: 5px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
     'Lucida Sans', Arial, sans-serif;
-  font-size: 27px;
-  font-weight: bold;
-`;
-
-const Description = styled.p`
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    font-size: 27px;
+    font-weight: bold;
+  }
+  
+  .description {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
     'Lucida Sans', Arial, sans-serif;
-  font-size: 17px;
-  height: 135px;
-  line-height: 20px;
-  margin-left: 10px;
-  margin-right: 10px;
-  text-align: center;
-  padding: 5px;
+    font-size: 17px;
+    height: 135px;
+    line-height: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+    padding: 5px;
+  }
 `;
 
-const Price = styled.p`
+const Price = styled.div`
   display: grid;
   grid-template-columns: 100px 50px;
-  background-color: #dddddd;
+  border: 2px solid #eecc09;
+  width: 200px;
   border-radius: 5px;
-  margin-left: 2.5px;
+  margin-left: 85px;
   margin-right: 2.5px;
-  margin-top: 60px;
+  margin-top: 55px;
   margin-bottom: 15px;
   height: 40px;
   padding: 10px;
   align-items: stretch;
+
   .price {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
       'Lucida Sans', Arial, sans-serif;
     color: #000000;
     font-size: 20px;
-    margin-left: 150px;
+    margin-left: 50px;
     margin-top: 7px;
     width: 150px;
   }
@@ -97,10 +100,11 @@ const Price = styled.p`
     width: 55px;
     height: 30px;
     border: 2px solid;
-    margin-left: 130px;
+    border-radius: 5px;
+    margin-left: 30px;
     margin-top: 5px;
     :focus {
-      outline-color: #ffffff;
+      outline-color: #eecc09;
     }
   }
 `;
@@ -198,12 +202,11 @@ export default function Products(props) {
       <ProductSelection>
         <a href="products" id="products" />
         {props.products.map((product, index) => (
-          <div key={product.id}>
-            <Image src={`/images/${product.id}.jpg`} />
-            <Name>{product.name}</Name>
-            <Description>{product.description}</Description>
+          <div key={product.id} className="first-div">
+            <img src={`/images/${product.id}.jpg`} alt=""/>
+            <p className="name">{product.name}</p>
+            <p className="description">{product.description}</p>
             <Price>
-              <>
                 <p className="price">{product.price}€/ Kg</p>
                 <select onChange={handleChange} className="inputbox">
                   <option value="1">1kg</option>
@@ -212,7 +215,6 @@ export default function Products(props) {
                   <option value="4">4kg </option>
                   <option value="5">5kg </option>
                 </select>
-              </>
             </Price>
             <Link href={`/products/${product.id}`}>
               <Button className="readMoreButton">Read More</Button>
