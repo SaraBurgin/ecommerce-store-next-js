@@ -201,7 +201,7 @@ export default function Products(props) {
       </ProductPPT>
       <ProductSelection>
         <a href="products" id="products" />
-        {props.products.map((product, index) => (
+        {products.map((product, index) => (
           <div key={product.id} className="first-div">
             <img src={`/images/${product.id}.jpg`} alt=""/>
             <p className="name">{product.name}</p>

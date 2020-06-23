@@ -1,11 +1,55 @@
 import styled from 'styled-components';
 import Link from 'next/link';
 import Cookies from 'js-cookie';
+import CollapsedMenu from './CollapsedMenu';
+import {useState} from 'react';
 
-const Logo = styled.div`
+const Button = styled.button `
+  border: none; 
+  background: none;
+  margin-top: -30px;
+  margin-left: 1000px;
+  width: 30px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+ :hover,
+ :focus {
+    background: none;
+    border: none;
+}
+:focus {
+    outline: 1px solid #fff;
+    outline-offset: -4px;
+}
+:active {
+    transform: scale(0.99);
+}
+
+
+  @media (max-width: 1440px) {
+    .menu {
+      display: none;
+      width: 30px;
+  }
+  }
+  @media (max-width: 1250px) {
+    .menu {
+      display: inline;
+      list-style: none;
+  }
+}
+`
+const Head = styled.div`
 @media (max-width: 1440px) {
   img {
     margin-left: 605px;
+    width: 200px;
+  }
+}
+@media (max-width: 1350px) {
+  img {
+    margin-left: 575px;
     width: 200px;
   }
 }
@@ -17,41 +61,48 @@ const Logo = styled.div`
 }
 @media (max-width: 1200px) {
   img {
-    margin-left: 450px;
+    margin-left: 480px;
     width: 200px;
   }
 }
 @media (max-width: 1100px) {
   img {
-    margin-left: 350px;
+    margin-left: 450px;
     width: 200px;
   }
 }
 @media (max-width: 1000px) {
   img {
-    margin-left: 340px;
+    margin-left: 380px;
     width: 200px;
   }
 }
 @media (max-width: 900px) {
   img {
-    margin-left: 320px;
+    margin-left: 360px;
     width: 200px;
   }
 }
 @media (max-width: 800px) {
   img {
-    margin-left: 270px;
+    margin-left: 250px;
     width: 200px;
   }
 }
 @media (max-width: 700px) {
   img {
-    margin-left: 240px;
+    margin-left: 225px;
     width: 200px;
   }
 }
 @media (max-width: 600px) {
+  img {
+    margin-left: 170px;
+    width: 200px;
+  }
+}
+
+@media (max-width: 500px) {
   img {
     margin-left: 145px;
     width: 200px;
@@ -68,12 +119,21 @@ const BreakLine = styled.div`
       margin-right: 280px;
     }
 }
+
 @media(max-width: 1300px) {
     hr {
-      width: 750px;
+      width: 740px;
       height: 0.2em;
       background-color: #737373;
-      margin-left: 250px;
+      margin-left: 220px;
+    }
+}
+@media(max-width: 1250px) {
+    hr {
+      width: 730px;
+      height: 0.2em;
+      background-color: #737373;
+      margin-left: 240px;
     }
 }
 @media(max-width: 1200px) {
@@ -81,15 +141,31 @@ const BreakLine = styled.div`
       width: 720px;
       height: 0.2em;
       background-color: #737373;
-      margin-right: 235px;
+      margin-right: 200px;
     }
 }
 @media(max-width: 1100px) {
     hr {
-      width: 720px;
+      width: 650px;
       height: 0.2em;
       background-color: #737373;
       margin-right: 200px;
+    }
+}
+@media(max-width: 1000px) {
+    hr {
+      width: 625px;
+      height: 0.2em;
+      background-color: #737373;
+      margin-left: 150px;
+    }
+}
+@media(max-width: 950px) {
+    hr {
+      width: 615px;
+      height: 0.2em;
+      background-color: #737373;
+      margin-left: 145px;
     }
 }
 @media(max-width: 900px) {
@@ -100,25 +176,44 @@ const BreakLine = styled.div`
       margin-left: 150px;
     }
 }
+
+@media(max-width: 800px) {
+    hr {
+      width: 550px;
+      height: 0.2em;
+      background-color: #737373;
+      margin-left: 75px;
+    }
+}
 @media(max-width: 700px) {
     hr {
       width: 500px;
       height: 0.2em;
       background-color: #737373;
-      margin-left: 90px;
+      margin-left: 65px;
     }
 }
-@media(max-width: 500px) {
+
+@media(max-width: 600px) {
     hr {
       width: 400px;
       height: 0.2em;
       background-color: #737373;
-      margin-left: 35px;
+      margin-left: 55px;
+    }
+}
+@media(max-width: 500px) {
+    hr {
+      width: 300px;
+      height: 0.2em;
+      background-color: #737373;
+      margin-left: 85px;
     }
 }
 `;
 
 const Navigation = styled.div`
+@media(max-width: 1440px) {
   ul {
     display: flex;
     list-style: none;
@@ -211,7 +306,20 @@ const Navigation = styled.div`
         left: 0;
       }
   }
+}
+@media(max-width: 1250px) {
+  ul {
+    display: none;
+  }
+  ul li {
+    display: none;
+  }
+  ul li a {
+    display: none;
+  }
+}
 `;
+
 
 const CartBubble = styled.div`
   display: grid;
@@ -219,12 +327,39 @@ const CartBubble = styled.div`
   grid-gap: 2px;
   margin-left: 1250px;
 
+@media (max-width: 1440px) {
   .cart-pic {
     width: 30px;
     margin-top: -170px;
     margin-left: 100px;
   }
- 
+}
+@media (max-width: 1400px) {
+  .cart-pic {
+    width: 30px;
+    margin-top: -170px;
+    margin-left: 60px;
+  }
+}
+@media (max-width: 1350px) {
+  .cart-pic {
+    width: 30px;
+    margin-top: -170px;
+    margin-left: 5px;
+  }
+}
+@media (max-width: 1300px) {
+  .cart-pic {
+    width: 30px;
+    margin-top: -170px;
+    margin-left: -50px;
+  }
+}
+@media (max-width: 1250px) {
+  .cart-pic {
+    display: none;
+  }
+}
   .basket-units {
     width: 50px;
     color: #737373;
@@ -233,9 +368,9 @@ const CartBubble = styled.div`
       'Lucida Sans', Arial, sans-serif;
     margin-top: -155px;
     margin-left: 55px; 
-  } 
-
+  }
 `;
+
 
 const Header = () => {
   /* Create a variable for the information inside of Cookies 'cart' that we will later use for cartLength*/
@@ -251,19 +386,23 @@ const Header = () => {
   } else {
   }
 
+  function handleClick() {
+  
+  };
+
   return (
     <>
-      <Logo>
+      <Head>
         <Link href="/">
           <img src="/images/logo.png" alt="cheesepic" />
         </Link>
-      </Logo>
+      </Head>
       <CartBubble>
         <Link href="../../cart">
           <img className="cart-pic" src="/images/cart.png" alt="cartpic" />
         </Link>
         {bubble}
-      </CartBubble> 
+      </CartBubble>
       <main>
         <BreakLine>
           <hr></hr>
@@ -292,6 +431,7 @@ const Header = () => {
               </li>
             </ul>
         </Navigation>
+        <CollapsedMenu />
       </main>
     </>
   );
