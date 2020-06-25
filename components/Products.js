@@ -5,15 +5,19 @@ import { useRouter } from 'next/router';
 import Cookies from 'js-cookie';
 
 const ProductPPT = styled.div`
-@media (max-width: 1440px) {
+  display: grid;
+  grid-template-columns: 70vw;
+  grid-template-rows: auto auto;
+
   h1 {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
       'Lucida Sans', Arial, sans-serif;
-    margin-left: 20px;
-    margin-top: 50px;
     font-size: 60px;
     font-weight: bold;
-    text-align: center;
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: center;
+    
   }
   h1 span {
     color: #eecc09;
@@ -21,11 +25,10 @@ const ProductPPT = styled.div`
   p {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
       'Lucida Sans', Arial, sans-serif;
-    margin-left: 370px;
-    margin-top: 40px;
     font-size: 30px;
+    grid-column: 1;
+    grid-row: 2;
   }
-}
 `;
 
 const ProductSelection = styled.div`
