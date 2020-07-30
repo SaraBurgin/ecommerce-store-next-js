@@ -6,7 +6,6 @@ import Nav from 'react-bootstrap/Nav'
 
 const Styles = styled.div`
   background-color: #dadada;
-
   /* .home {
     ::after {
         content: '';
@@ -98,7 +97,7 @@ const Header = () => {
     <Styles>
         <Navbar variant="light" expand="lg">
           <Navbar.Brand href="/">
-            <img src="/images/logo.png" width="125" className="d-inline-block align-top" alt="Cheese it logo"/>
+            <img src="/images/logo.png" width="110" className="d-inline-block align-top" alt="Cheese it logo"/>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">

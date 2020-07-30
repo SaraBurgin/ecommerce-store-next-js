@@ -6,7 +6,6 @@ import Products from '../components/Products';
 const Index = (props) => (
   <>
     <Layout>
-      <div className="container">
         <Head >
           <title>Home</title>
           <link rel="icon" href="" />
@@ -17,9 +16,10 @@ const Index = (props) => (
           crossorigin="anonymous"
         />
         </Head>
-        <Main />
+        <div className="container">
+          <Main />
+        </div>
         <Products products={props.products} />
-      </div>
     </Layout>
   </>
 );

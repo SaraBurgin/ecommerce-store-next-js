@@ -8,17 +8,18 @@ const Container = styled.div`
 
   img {
     object-fit: cover;
-    width: 540px;
+    width: 535px;
     height: 400px;
     grid-column: 3 / 5;
     grid-row: 1 / 3;
+    margin-top: 25px;
   }
 
   h1 {
     font-size: 80px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
       'Lucida Sans', Arial, sans-serif;
-    margin-top: 15px;
+    margin-top: 45px;
     grid-column: 1 / 3;
     grid-row: 1 / 3;
   }
