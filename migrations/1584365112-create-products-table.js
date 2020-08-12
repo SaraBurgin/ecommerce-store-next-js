@@ -1,6 +1,5 @@
 exports.up = async function (sql) {
   console.log('Creating products table...');
-
   await sql`
   CREATE TABLE products (
     id SERIAL PRIMARY KEY,

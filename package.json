@@ -26,10 +26,10 @@
     "ley": "^0.5.0"
   },
   "scripts": {
-    "heroku-postbuild": "npm run migrate up && npm run build",
-    "migrate": "dotenv ley --",
+    "heroku-postbuild": "npm run migrate && npm run build",
+    "dev": "npm run migrate && next dev",
     "build": "next build",
-    "dev": "next dev",
-    "start": "next start"
+    "start": "next start -p $PORT && node index.js",
+    "migrate": "dotenv ley --"
   }
 }
