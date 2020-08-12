@@ -1,4 +1,4 @@
-exports.up = async function (sql) {
+exports.up = async (sql) => {
   console.log('Creating products table...');
   await sql`
   CREATE TABLE products (
@@ -10,7 +10,7 @@ exports.up = async function (sql) {
   `;
 };
 
-exports.down = async function (sql) {
+exports.down = async (sql) => {
   console.log('Dropping products table...');
   await sql`
   DROP TABLE products;
