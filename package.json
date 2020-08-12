@@ -33,4 +33,3 @@
     "heroku-postbuild": "npm run migrate up && npm run build"
   }
 }
-// heroku-postbuild will run automatically when you push to git. As soon as I push to github, heroku will detect it and will take the change and run the build script. This will run the migrations and then run the application. 
