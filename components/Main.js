@@ -12,7 +12,7 @@ const Container = styled.div`
     height: 400px;
     grid-column: 3 / 5;
     grid-row: 1 / 3;
-    margin-top: 25px;
+    margin-top: 22px;
   }
 
   h1 {

@@ -1,7 +1,9 @@
-require('dotenv').config();
+if(process.env.NODE_ENV !== 'production') require('dotenv').config();
 const postgres = require('postgres');
 
-//I want to declare a new constant (sql) the result is based on wether the dATABASE_URL is available. If it is available, I want to use it if not I call postgres as empty function.
+
+//I want to declare a new constant (sql) the result is based on wether the DATABASE_URL is available. If it is available, I want to use it if not I call postgres as empty function. 
+// Process.env.DATABASE_URL is how we access the db to check if it is available.
 
 const sql = process.env.DATABASE_URL
   ? postgres(process.env.DATABASE_URL, { ssl: { rejectUnauthorized: false } })
