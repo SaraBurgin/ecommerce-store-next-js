@@ -30,6 +30,6 @@
     "dev": "npm run migrate && next dev",
     "build": "next build",
     "start": "next start -p $PORT && node index.js",
-    "migrate": "dotenv ley --"
+    "migrate": "dotenv ley up"
   }
 }
