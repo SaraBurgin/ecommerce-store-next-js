@@ -12,7 +12,6 @@
     "start": "next start -p $PORT && node index.js",
     "migrate": "dotenv ley up"
   },
-  "main": "index.js",
   "dependencies": {
     "babel-plugin-styled-components": "^1.10.7",
     "bootstrap": "^4.5.0",
