@@ -4,7 +4,9 @@ const config = {
   password: process.env.PGPASSWORD,
   username: process.env.PGUSER,
   port: 5432,
-  ssl: true
+  ssl: {
+    rejectUnauthorized: false,
+  }
 };
 console.log('database configuration: ', config);
 
@@ -14,6 +16,7 @@ module.exports = {
   password: process.env.PGPASSWORD,
   username: process.env.PGUSER,
   port: 5432,
-  ssl: true
+  ssl: {
+    rejectUnauthorized: false,
+  }
 }
-
