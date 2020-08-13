@@ -36,6 +36,7 @@ const ProductSelection = styled.div`
       grid-template-columns: 409px 409px 409px;
       column-gap: 20px;
       justify-items: center;
+      
     a {
       display: none;
     }

@@ -5,79 +5,7 @@ import Nav from 'react-bootstrap/Nav'
 
 
 const Styles = styled.div`
-  background-color: #dadada;
-  /* .home {
-    ::after {
-        content: '';
-        position: absolute;
-        background-color: #eecc09;
-        height: 3px;
-        margin-top: 30px;
-        width: 0;
-        left: 5%;
-        transition: left 0.2s ease 0s;
-        /* transition: width 0.3s ease 0s, left 0.3s ease 0s; */
-     /* }
-      :hover::after {
-        width: 7%;
-        margin-left: 387px;
-        left: 0;
-      }
-  } 
-  .productsNav {
-    ::after {
-        content: '';
-        position: absolute;
-        background-color: #eecc09;
-        height: 3px;
-        margin-top: 30px;
-        width: 0;
-        left: 5%;
-        transition: left 0.2s ease 0s;
-        /* transition: width 0.3s ease 0s, left 0.3s ease 0s; */
-      /*}
-      :hover::after {
-        width: 7%;
-        margin-left: 570px;
-        left: 0;
-      }
-  }
-  .theTeam {
-    ::after {
-        content: '';
-        position: absolute;
-        background-color: #eecc09;
-        height: 3px;
-        margin-top: 30px;
-        width: 0;
-        left: 5%;
-        transition: left 0.2s ease 0s;
-        /* transition: width 0.3s ease 0s, left 0.3s ease 0s; */
-      /*}
-      :hover::after {
-        width: 7%;
-        margin-left: 767px;
-        left: 0;
-      }
-  }
-  .contact {
-    ::after {
-        content: '';
-        position: absolute;
-        background-color: #eecc09;
-        height: 3px;
-        margin-top: 30px;
-        width: 0;
-        left: 5%;
-        transition: left 0.2s ease 0s;
-        /* transition: width 0.3s ease 0s, left 0.3s ease 0s; */
-      /*}
-      :hover::after {
-        width: 7%;
-        margin-left: 962px;
-        left: 0;
-      }
-  } */
+  background-color: #d9d9d9;
 `;
 
 const Header = () => {
@@ -97,7 +25,7 @@ const Header = () => {
     <Styles>
         <Navbar variant="light" expand="lg">
           <Navbar.Brand href="/">
-            <img src="/images/logo.png" width="110" className="d-inline-block align-top" alt="Cheese it logo"/>
+            <img src="/images/just-cheese.png" width="65" className="d-inline-block align-top" alt="Cheese it logo"/>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
