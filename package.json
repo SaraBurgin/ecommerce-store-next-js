@@ -26,10 +26,10 @@
     "react-bootstrap": "^1.0.1",
     "react-dom": "^16.13.0",
     "react-icons": "^3.10.0",
-    "styled-components": "^5.0.1"
+    "styled-components": "^5.0.1",
+    "ley": "^0.5.0"
   },
   "devDependencies": {
-    "dotenv-cli": "^3.1.0",
-    "ley": "^0.5.0"
+    "dotenv-cli": "^3.1.0"
   }
 }
