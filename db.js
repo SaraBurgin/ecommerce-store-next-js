@@ -6,8 +6,6 @@ const postgres = require('postgres');
 
 // postgres://yydedovnqwhcxo:dc3db946c41c79323413dcec88977a837ba425ce1f8c524d99326effa5066e30@ec2-54-246-85-151.eu-west-1.compute.amazonaws.com:5432/d50omsndhmm425
 
-// postgresql://yydedovnqwhcxo:dc3db946c41c79323413dcec88977a837ba425ce1f8c524d99326effa5066e30@ec2-54-246-85-151.eu-west-1.compute.amazonaws.com/d50omsndhmm425
-
 const sql = process.env.DATABASE_URL
   ? postgres(process.env.DATABASE_URL, { ssl: { rejectUnauthorized: false } })
   : postgres();
