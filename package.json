@@ -5,6 +5,13 @@
   "engines": {
     "node": "13.8.0 || 10.20.1"
   },
+  "scripts": {
+    "heroku-postbuild": "npm run migrate && npm run build",
+    "dev": "npm run migrate && next dev",
+    "build": "next build",
+    "start": "next start -p $PORT && node index.js",
+    "migrate": "dotenv ley up"
+  },
   "main": "index.js",
   "dependencies": {
     "babel-plugin-styled-components": "^1.10.7",
@@ -24,12 +31,5 @@
   "devDependencies": {
     "dotenv-cli": "^3.1.0",
     "ley": "^0.5.0"
-  },
-  "scripts": {
-    "heroku-postbuild": "npm run migrate && npm run build",
-    "dev": "npm run migrate && next dev",
-    "build": "next build",
-    "start": "next start -p $PORT && node index.js",
-    "migrate": "dotenv ley up"
   }
 }
