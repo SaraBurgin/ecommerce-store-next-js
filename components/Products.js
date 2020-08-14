@@ -6,8 +6,7 @@ import Cookies from 'js-cookie';
 
 const ProductPPT = styled.div`
   display: grid;
-  grid-template-columns: 70vw;
-  grid-template-rows: auto auto;
+  grid-template-columns: 1fr;  grid-template-rows: auto auto;
 
   h1 {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
@@ -17,6 +16,7 @@ const ProductPPT = styled.div`
     grid-column: 1;
     grid-row: 1;
     justify-self: center;
+    align-self: center;
     
   }
   h1 span {
@@ -29,26 +29,32 @@ const ProductPPT = styled.div`
     grid-column: 1;
     grid-row: 2;
   }
+  @media (max-width: 990px) {
+    h1 {
+      font-size: 45px;
+    }
+  }
 `;
 
 const ProductSelection = styled.div`
       display: grid;
-      grid-template-columns: 409px 409px 409px;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr;
+      padding: 20px;
       column-gap: 20px;
-      justify-items: center;
       
     a {
       display: none;
     }
+
     .wrapper-div {
-      display: grid;
-      justify-items: center;
+      display: grid; 
       row-gap: 5px;
       border: 4px solid #eecc09;
       border-radius: 5px;
     }
     img {
-      width: 400px;
+      width: 447px;
       height: 225px;
       object-fit: cover;
       border-radius: 2px;
@@ -78,7 +84,7 @@ const ProductSelection = styled.div`
       height: 50px;
       grid-template-columns: 2fr 1fr;
       grid-template-rows: 30px;
-      justify-items: center;
+      justify-self: center;
       border: 2px solid #eecc09;
       border-radius: 5px;
       padding: 10px;
@@ -103,6 +109,7 @@ const ProductSelection = styled.div`
     }
     .buttons {
       display: grid;
+      justify-self: center;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr;
       column-gap: 5px;
@@ -152,8 +159,41 @@ const ProductSelection = styled.div`
             outline-color: #ffffff;
           }
           }
-`;
+          @media(max-width: 1430px){
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            grid-gap: 5px;
+            padding: 20px;
+            column-gap: 20px;
+            justify-items: center;
 
+            .wrapper-div {
+              width: 455px;
+              display: grid; 
+              row-gap: 5px;
+              border: 4px solid #eecc09;
+              border-radius: 5px;
+          }
+          }
+          @media(max-width: 960px){
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
+            grid-gap: 5px;
+            padding: 20px;
+            column-gap: 20px;
+            justify-items: center;
+
+            .wrapper-div {
+              width: 455px;
+              display: grid; 
+              row-gap: 5px;
+              border: 4px solid #eecc09;
+              border-radius: 5px;
+          }
+          }
+`;
 
 export default function Products(props) {
   const [kilos, setKilos] = useState(1);

@@ -25,7 +25,7 @@ const Header = () => {
     <Styles>
         <Navbar variant="light" expand="lg">
           <Navbar.Brand href="/">
-            <img src="/images/just-cheese.png" width="65" className="d-inline-block align-top" alt="Cheese it logo"/>
+            <img src="/images/just-cheese2.png" width="65" className="d-inline-block align-top" alt="Cheese it logo"/>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">

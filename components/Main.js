@@ -4,7 +4,7 @@ const Container = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
-  grid-auto-rows: 150px 75px 75px 75px 75px;
+  grid-auto-rows: 150px 75px 75px 75px;
 
   .logo-pic {
     grid-column: 2;
@@ -46,8 +46,8 @@ const Container = styled.div`
     height: 0.2em;
     background-color: #737373;
     grid-column: 1 / 4;
-    grid-row: 7;
-  }
+    grid-row: 6;
+    align-self: end;
   }
 
 @media (max-width: 990px){
@@ -65,6 +65,11 @@ const Container = styled.div`
     grid-column: 1 / 4;
     grid-row: 4 / 5;
     justify-self: center;
+  }
+  hr {
+    width: 650px;
+    grid-row: 5;
+    align-self: end;
   }
 }
   @media (max-width: 770px){
@@ -84,6 +89,9 @@ const Container = styled.div`
     grid-row: 4 / 5;
     justify-self: center;
     font-size: 40px;
+  }
+  hr {
+    width: 450px;
   }
 }
 
@@ -105,6 +113,10 @@ const Container = styled.div`
     justify-self: center;
     align-self: start;
     font-size: 35px;
+  }
+
+  hr {
+    width: 350px;
   }
 }
 `;
