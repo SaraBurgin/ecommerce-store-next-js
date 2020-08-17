@@ -4,12 +4,11 @@ import Footer from './Footer';
 
 const Layout = props => (
   <>
-      <Head>
-        <title>Cheese it!</title>
-      </Head>
       <Header />
+      <div>
         {props.children}{' '}
         {/*Whatever page we are on this is where it is going to output. With props.*/}
+      </div>
       <Footer />
   </>
 );

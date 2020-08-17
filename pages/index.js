@@ -16,9 +16,7 @@ const Index = (props) => (
           crossorigin="anonymous"
         />
         </Head>
-        <div className="container">
-          <Main />
-        </div>
+        <Main />
         <Products products={props.products} />
     </Layout>
   </>

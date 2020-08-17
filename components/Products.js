@@ -40,7 +40,7 @@ const ProductSelection = styled.div`
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       grid-template-rows: 1fr;
-      padding: 20px;
+      margin: 20px;
       column-gap: 20px;
       
     a {
@@ -164,7 +164,6 @@ const ProductSelection = styled.div`
             grid-template-columns: 1fr 1fr;
             grid-template-rows: 1fr 1fr;
             grid-gap: 5px;
-            padding: 20px;
             column-gap: 20px;
             justify-items: center;
 
@@ -181,7 +180,6 @@ const ProductSelection = styled.div`
             grid-template-columns: 1fr;
             grid-template-rows: 1fr 1fr 1fr;
             grid-gap: 5px;
-            padding: 20px;
             column-gap: 20px;
             justify-items: center;
 

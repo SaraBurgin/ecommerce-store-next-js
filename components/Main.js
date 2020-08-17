@@ -5,7 +5,8 @@ const Container = styled.div`
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
   grid-auto-rows: 150px 75px 75px 75px;
-
+  margin: 20px;
+  
   .logo-pic {
     grid-column: 2;
     grid-row: 1 / 2;
@@ -28,6 +29,7 @@ const Container = styled.div`
     margin-top: 45px;
     grid-column: 1 / 3;
     grid-row: 2 / 3;
+    justify-self: center;
   }
   h1 span {
     color: #eecc09;
@@ -37,8 +39,10 @@ const Container = styled.div`
     font-size: 40px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
       'Lucida Sans', Arial, sans-serif;
+    width: 800px;
     grid-column: 1 / 3;
     grid-row: 4 / 5;
+    justify-self: center;
   }
 
   hr {
@@ -49,6 +53,12 @@ const Container = styled.div`
     grid-row: 6;
     align-self: center;
   }
+
+@media (max-width: 1240px) {
+  h2 {
+    width: 600px;
+  }
+}
 
 @media (max-width: 990px){
   .team-pic {
@@ -62,6 +72,7 @@ const Container = styled.div`
   }
 
   h2 {
+    width: 550px;
     grid-column: 1 / 4;
     grid-row: 4 / 5;
     justify-self: center;
@@ -85,6 +96,7 @@ const Container = styled.div`
   }
 
   h2 {
+    width: 550px;
     grid-column: 1 / 4;
     grid-row: 4 / 5;
     justify-self: center;
@@ -108,6 +120,7 @@ const Container = styled.div`
   }
 
   h2 {
+    width: 450px;
     grid-column: 1 / 4;
     grid-row: 4 / 5;
     justify-self: center;
@@ -117,6 +130,20 @@ const Container = styled.div`
 
   hr {
     width: 350px;
+    grid-row: 6;
+    align-self: start;
+  }
+}
+
+@media(max-width: 520px) {
+  h2 {
+    margin-top: 10px;
+    margin-left: 50px;
+    width: 390px;
+  }
+
+  hr {
+    
   }
 }
 `;
