@@ -191,6 +191,18 @@ const ProductSelection = styled.div`
               border-radius: 5px;
           }
           }
+          @media(max-width: 770px) {
+              .wrapper-div {
+                width: 350px
+                }
+
+              img {
+                width: 342px;
+                height: 225px;
+                object-fit: cover;
+                border-radius: 2px;
+              }
+          }
 `;
 
 export default function Products(props) {

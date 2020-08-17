@@ -1,15 +1,20 @@
-import Head from 'next/head';
 import Header from './Header';
 import Footer from './Footer';
+import Styled from 'styled-components'
+
+const Container = Styled.div `
+  margin: 0px;
+  padding: 0px;
+`
 
 const Layout = props => (
   <>
+  <Container>
       <Header />
-      <div>
         {props.children}{' '}
         {/*Whatever page we are on this is where it is going to output. With props.*/}
-      </div>
       <Footer />
+  </Container>
   </>
 );
 

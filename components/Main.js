@@ -129,7 +129,7 @@ const Container = styled.div`
   }
 
   hr {
-    width: 350px;
+    width: 335px;
     grid-row: 6;
     align-self: start;
   }
@@ -138,12 +138,8 @@ const Container = styled.div`
 @media(max-width: 520px) {
   h2 {
     margin-top: 10px;
-    margin-left: 50px;
-    width: 390px;
-  }
-
-  hr {
-    
+    font-size: 30px;
+    width: 340px;
   }
 }
 `;
