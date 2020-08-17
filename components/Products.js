@@ -6,7 +6,8 @@ import Cookies from 'js-cookie';
 
 const ProductPPT = styled.div`
   display: grid;
-  grid-template-columns: 1fr;  grid-template-rows: auto auto;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
 
   h1 {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
@@ -16,7 +17,7 @@ const ProductPPT = styled.div`
     grid-column: 1;
     grid-row: 1;
     justify-self: center;
-    align-self: center;
+    align-self: start;
     
   }
   h1 span {
@@ -40,7 +41,7 @@ const ProductSelection = styled.div`
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       grid-template-rows: 1fr;
-      margin: 20px;
+      margin: 10px;
       column-gap: 20px;
       
     a {
@@ -64,7 +65,7 @@ const ProductSelection = styled.div`
       font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
       'Lucida Sans', Arial, sans-serif;
       margin-top: 5px;
-      margin-bottom: 5px;
+      margin-bottom: 2px;
       font-size: 27px;
       font-weight: bold;
     }
@@ -88,6 +89,7 @@ const ProductSelection = styled.div`
       border: 2px solid #eecc09;
       border-radius: 5px;
       padding: 10px;
+      margin-top: 15px;
     }
     .price {
       font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
