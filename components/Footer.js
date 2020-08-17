@@ -61,6 +61,10 @@ h2 {
 @media (max-width: 500px) {
   grid-template-columns: 0.07fr 1fr 1fr 1fr;
   grid-template-rows: 80px;
+  
+  h2 {
+    font-size: 10px;
+  }
 }
  `
 
