@@ -47,7 +47,7 @@ const Container = styled.div`
     background-color: #737373;
     grid-column: 1 / 4;
     grid-row: 6;
-    align-self: end;
+    align-self: center;
   }
 
 @media (max-width: 990px){
