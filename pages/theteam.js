@@ -30,7 +30,7 @@ const Image = styled.img`
     justify-self: center;
   }
   @media(max-width: 550px) {
-    width: 375px;
+    width: 365px;
     height: 600px;
     object-fit: cover;
   }
@@ -52,7 +52,7 @@ const Presentation = styled.p`
     justify-self: center;
   }
   @media(max-width: 550px) {
-    width: 375px;
+    width: 365px;
     font-size: 17px;
   }
 `;
@@ -71,7 +71,7 @@ const Image2 = styled.img`
     justify-self: center;
   }
   @media(max-width: 550px) {
-    width: 375px;
+    width: 365px;
     height: 400px;
     object-fit: cover;
   }
@@ -93,7 +93,7 @@ const Presentation2 = styled.p`
     justify-self: center;
   }
   @media(max-width: 550px) {
-    width: 375px;
+    width: 365px;
     font-size: 17px;
     align-self: end;
   }
