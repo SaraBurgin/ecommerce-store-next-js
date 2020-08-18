@@ -14,6 +14,10 @@ const Container = styled.div`
     grid-template-columns: auto;
     grid-template-rows: auto;
   }
+  @media(max-width: 550px) {
+   margin-top: 10px;
+   padding: 0px;
+  }
 `;
 
 const Image = styled.img`
