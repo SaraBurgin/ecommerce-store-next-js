@@ -44,9 +44,9 @@ const ProductSelection = styled.div`
       margin: 10px;
       column-gap: 20px;
       
-    a {
+    /* a {
       display: none;
-    }
+    } */
 
     .wrapper-div {
       display: grid; 
@@ -274,8 +274,8 @@ export default function Products(props) {
           <p>Here are the real deal 3 best cheeses of 2019!</p>
       </ProductPPT>
       </div>
+      <a href="products" id="products" />
       <ProductSelection>
-        <a href="products" id="products" />
         {products.map((product, index) => (
           <div key={product.id} className="wrapper-div">
             <img src={`/images/${product.id}.jpg`} alt=""/>

@@ -4,27 +4,99 @@ import Layout from '../components/Layout';
 import styled from 'styled-components';
 
 const Container = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto;
+  justify-items: center;
+  padding: 10px;
+  grid-gap: 10px;
+  @media(max-width: 1050px) {
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+  }
 `;
 
 const Image = styled.img`
-  width: 600px;
-  height: 300px;
+  width: 500px;
+  height: 500px;
   object-fit: cover;
-  margin-left: 150px;
   border-radius: 5px;
-  margin-top: 23px;
+  grid-column: 1;
+  grid-row: 1;
+  justify-self: end;
+  @media(max-width: 1050px) {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: center;
+  }
+  @media(max-width: 550px) {
+    width: 375px;
+    height: 600px;
+    object-fit: cover;
+  }
 `;
 
 const Presentation = styled.p`
-  padding: 10px;
-  font-size: 23.5px;
-  margin-left: 20px;
-  border-radius: 5px;
-  height: 275px;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-    'Lucida Sans', Arial, sans-serif;
   width: 500px;
+  padding: 20px;
+  margin-top: 10px;
+  font-size: 20px;
+  font-family: 'American Typewriter', 'serif';
+  color: white;
+  grid-column: 1;
+  grid-row: 1;
+  justify-self: end;
+  @media(max-width: 1050px) {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: center;
+  }
+  @media(max-width: 550px) {
+    width: 375px;
+    font-size: 17px;
+  }
+`;
+
+const Image2 = styled.img`
+  width: 500px;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 5px;
+  grid-column: 2;
+  grid-row: 1 / 2;
+  justify-self: start;
+  @media(max-width: 1050px) {
+    grid-column: 1;
+    grid-row: 2;
+    justify-self: center;
+  }
+  @media(max-width: 550px) {
+    width: 375px;
+    height: 400px;
+    object-fit: cover;
+  }
+`;
+
+const Presentation2 = styled.p`
+  width: 500px;
+  padding: 15px;
+  margin-top: 10px;
+  font-size: 20px;
+  font-family: 'American Typewriter', 'serif';
+  color: white;
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: start;
+  @media(max-width: 1050px) {
+    grid-column: 1;
+    grid-row: 2;
+    justify-self: center;
+  }
+  @media(max-width: 550px) {
+    width: 375px;
+    font-size: 17px;
+    align-self: end;
+  }
 `;
 
 const Theteam = () => (
@@ -33,22 +105,23 @@ const Theteam = () => (
       <Head>
         <title>The team</title>
       </Head>
-
       <Container>
-        <Image src="/images/team.jpg" />
+        <Image src="/images/the-team.jpg" />
         <Presentation>
           {' '}
           Hi there! <br />
-          <br />
           We are Peter and Rachel, two individuals with a passion for
           gastronomy, travels and culture.
           <br />
-          <br />
           We are here to make the best cheeses of the world accesible to you.{' '}
           <br />
-          <br />
+
           Always updating, always changing!! <br /> <br />{' '}
         </Presentation>
+        <Image2 src="/images/the-team2.jpg"></Image2>
+        <Presentation2>
+          And this is: Amy, Chloe and Ramita. They are in charge of Logistics, Marketing and New Business. They help our crazy dreams and adventures come true. 
+        </Presentation2>
       </Container>
     </Layout>
   </>
