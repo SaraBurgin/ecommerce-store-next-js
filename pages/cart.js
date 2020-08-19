@@ -6,64 +6,118 @@ import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 
 const CartIntro = styled.div`
-  margin-top: 50px;
-  margin-left: 300px;
-  margin-bottom: 30px;
-  width: 375px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  justify-items: center;
+  padding: 10px;
+
   .title {
     color: #737373;
     font-weight: bold;
     font-size: 35px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
       'Lucida Sans', Arial, sans-serif;
-    border-bottom: 2px solid #737373;
-    padding-bottom: 3px;
-    width: 310px;
   }
+
+  img {
+    height: 40px;
+  }
+  @media(max-width: 550px) {
+      .title {
+        font-size: 25px;
+      }
+
+      img {
+        height: 30px;
+      }
+    }
 `;
 
 const CartInfo = styled.div`
   .totalCart {
     display: grid;
-    grid-template-columns: 295px 125px 70px 180px 175px 40px;
-    height: 50px;
+    padding: 10px;
+    margin-left: 100px;
+    margin-right: 100px;
+    grid-template-columns: 3.75fr 1fr 0.65fr 2fr 1.25fr 0.75fr; 
+    grid-template-rows: auto;
+    justify-content: center;  
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+    color: #737373;
     border-top: 2px solid #eecc09;
     border-bottom: 2px solid #eecc09;
-    width: 875px;
-    margin-left: 300px;
-    color: #737373;
+    margin-bottom: 5px;
   }
-  .cartName {
+  @media(max-width: 700px) {
+    grid-template-columns: auto auto;
+    grid-template-rows: repeat(6, 1fr);
+    justify-content: center;  
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+  }
+  .productName {
+    grid-column: 1 / 2;
+    grid-row: 1;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
       'Lucida Sans', Arial, sans-serif;
     span {
       font-weight: bold;
+    }
+    @media(max-width: 700px) {
+      font-size: 13px;
+      width: 200px;
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+      justify-self: start;
     }
   }
   .cartKilos {
+    grid-column: 2 / 3;
+    grid-row: 1;
+    align-self: center;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
       'Lucida Sans', Arial, sans-serif;
     span {
       font-weight: bold;
     }
+    @media(max-width: 700px) {
+      grid-column: 1 / 2;
+      grid-row: 2 / 3;
+      font-size: 13px;
+      justify-self: start;
+      align-self: end;
+    }
   }
   div {
-    display: grid;
-    grid-template-rows: 20px 20px;
-    grid-gap: 2px;
-    width: 45px;
-    height: 20px;
-    margin-top: 4.5px;
-    margin-left: -22px;
-
+    grid-column: 3 / 4;
+    grid-row: 1;
+    align-self: start;
+    @media(max-width: 700px) {
+      grid-column: 1 / 2;
+      grid-row: 2 / 3;
+      font-size: 13px;
+      justify-self: center;
+      margin-left: 30px;
+      align-self: start;
+      margin-top: -3px;
+      .up {
+        font-size: 7px;
+      }
+      .down {
+        font-size: 7px;
+      }
+    }
     .up {
       color: #eecc09;
       border: 2px solid #eecc09;
       border-radius: 3px;
       font-size: 13px;
       font-weight: bolder;
-      margin-top: -2px;
-      margin-bottom: 1px;
+
       :focus {
         outline-color: #ffffff;
       }
@@ -79,7 +133,6 @@ const CartInfo = styled.div`
       border-radius: 3px;
       font-size: 13px;
       font-weight: bold;
-      margin-top: -1px;
       :focus {
         outline-color: #ffffff;
       }
@@ -91,29 +144,64 @@ const CartInfo = styled.div`
     }
   }
   .productPrice {
-    margin-right: 30px;
+    grid-column: 4 / 5;
+    grid-row: 1;
+    align-self: center;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
       'Lucida Sans', Arial, sans-serif;
     span {
       font-weight: bold;
     }
+    @media(max-width: 700px) {
+      grid-column: 1 / 2;
+      grid-row: 3 / 4;
+      font-size: 13px;
+      width: 120px;
+      justify-self: start;
+    }
   }
-  .cartMultiply {
+  .totalPrice {
+    grid-column: 5 / 6;
+    grid-row: 1;
+    align-self: center;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
       'Lucida Sans', Arial, sans-serif;
     span {
       font-weight: bold;
+    }
+    @media(max-width: 700px) {
+      grid-column: 1 / 2;
+      grid-row: 4 / 5;
+      font-size: 13px;
+      justify-self: start;
     }
   }
   .x {
-    margin-left: -10px;
-    margin-top: 10px;
+    grid-column: 6 / 7;
+    grid-row: 1;
+    align-self: start;
     width: 30px;
     height: 30px;
     color: #ffffff;
     background-color: #eecc09;
     border: solid 2px #737373;
-    border-radius: 7px;
+    border-radius: 5px;
+      @media(max-width: 700px) {
+        grid-column: 1/ 2;
+        grid-row: 4 / 5;
+        font-size: 8px;
+        width: 20px;
+        height: 20px;
+        justify-self: center;
+        margin-left: 45px;
+        align-self: start;
+        margin-top: -1px;
+        p {
+          font-size: 7px;
+          margin-top: -5px;
+          margin-left: -1.5px;
+        }
+      }
     cursor: pointer;
     :hover {
       background-color: #ffffff;
@@ -123,7 +211,6 @@ const CartInfo = styled.div`
       outline-color: #ffffff;
     }
     p {
-      margin-top: 4px;
       color: #737373;
       font-weight: bold;
       font-size: 15px;
@@ -135,38 +222,42 @@ const CartInfo = styled.div`
     }
   }
 `;
-
-const TotalPrice = styled.p`
-  margin-left: 990px;
-  font-weight: bold;
-  font-size: 20px;
-  color: #737373;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-    'Lucida Sans', Arial, sans-serif;
-`;
-
-const Button = styled.button`
-  background-color: #eecc09;
-  color: #ffffff;
-  width: 150px;
-  height: 50px;
-  border: 2px solid #737373;
-  border-radius: 8px;
-  padding: 7px;
-  font-size: 21px;
-  margin-left: 635px;
-  :hover {
-    background-color: #ffffff;
-    color: #eecc09;
-    border: 2px solid #eecc09;
-  }
-  :focus {
-    outline-color: #ffffff;
-  }
-  p {
-    margin-top: 5px;
-  }
-`;
+const TotalSum = styled.p`
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 90vw;
+    justify-items: end;
+    font-size: 20px;
+    color: #737373;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+      'Lucida Sans', Arial, sans-serif;
+      @media(max-width: 700px) {
+        font-size: 15px;
+      }
+`
+const ButtonContainer = styled.div`
+  text-align: center;
+    .continue-2-payment {
+      background-color: #eecc09;
+      color: #ffffff;
+      width: 150px;
+      height: 50px;
+      border: 2px solid #737373;
+      border-radius: 8px;
+      padding: 7px;
+      font-size: 21px;
+        :hover {
+          background-color: #ffffff;
+          color: #eecc09;
+          border: 2px solid #eecc09;
+        }
+        :focus {
+          outline-color: #ffffff;
+        }
+    }
+`
+    
+    
 
 export default function Cart(props) {
   /* Here we assing the value of props.cart to a new variable*/
@@ -307,7 +398,7 @@ export default function Cart(props) {
     <>
       <Layout>
         <CartIntro >
-          <p className="title">Your shopping cart</p>
+          <p className="title">Your shopping cart <img alt="shopping-cart" src="/images/cart.png" /> </p>
         </CartIntro>
         <CartInfo >
           {/* We use the cart map to map over our cart and return the specific cartValues that we wanted*/}
@@ -316,7 +407,7 @@ export default function Cart(props) {
             return (
               <>
                 <div className="totalCart" key={cartValue.id}>
-                  <p className="cartName">
+                  <p className="productName">
                     <span>Product: </span> {cartValue.name}
                   </p>
                   <p className="cartKilos">
@@ -340,7 +431,7 @@ export default function Cart(props) {
                   <p className="productPrice">
                     <span>Product price:</span> {cartValue.price}€
                   </p>
-                  <p className="cartMultiply">
+                  <p className="totalPrice">
                     <span>Total price: </span>
                     {`${cartValue.kilos * cartValue.price} € `}
                   </p>
@@ -353,14 +444,18 @@ export default function Cart(props) {
               </>
             );
           })}
-          {/* 3. Show the variable */}
-          <TotalPrice >
-            Total sum: {sumTotals}€
-          </TotalPrice>
         </CartInfo>
-        <Button className="payNow" onClick={payNow}>
-          <p>Continue</p>
-        </Button>
+        <TotalSum>
+             {/* 3. Show the variable */}
+            <p className="totalSum">
+                    Total sum: {sumTotals}€
+            </p>
+        </TotalSum>
+        <ButtonContainer>
+          <button className="continue-2-payment" onClick={payNow}>
+            <p>Continue</p>
+            </button>
+        </ButtonContainer>
       </Layout>
     </>
   );
