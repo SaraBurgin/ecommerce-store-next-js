@@ -180,26 +180,22 @@ const CartInfo = styled.div`
     grid-column: 6 / 7;
     grid-row: 1;
     align-self: start;
-    width: 30px;
     height: 30px;
     color: #ffffff;
     background-color: #eecc09;
     border: solid 2px #737373;
     border-radius: 5px;
+    text-align: center;
       @media(max-width: 700px) {
         grid-column: 1/ 2;
         grid-row: 4 / 5;
         font-size: 8px;
-        width: 20px;
-        height: 20px;
         justify-self: center;
         margin-left: 45px;
         align-self: start;
-        margin-top: -1px;
+        margin-top: -5px;
         p {
           font-size: 7px;
-          /* margin-top: -5px;
-          margin-left: -1.5px; */
         }
       }
     cursor: pointer;
