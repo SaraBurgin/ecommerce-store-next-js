@@ -198,8 +198,8 @@ const CartInfo = styled.div`
         margin-top: -1px;
         p {
           font-size: 7px;
-          margin-top: -5px;
-          margin-left: -1.5px;
+          /* margin-top: -5px;
+          margin-left: -1.5px; */
         }
       }
     cursor: pointer;
