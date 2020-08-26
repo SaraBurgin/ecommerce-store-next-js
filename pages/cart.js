@@ -144,7 +144,7 @@ const CartInfo = styled.div`
       font-size: 13px;
       justify-self: center;
       align-self: start;
-      margin-left: -40px;
+      margin-left: -35px;
       margin-top: -3px;
       .up {
         font-size: 7px;
