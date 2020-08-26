@@ -266,7 +266,7 @@ const CartInfo = styled.div`
         grid-column: 1/ 2;
         grid-row: 5 / 6;
         height: 35px;
-        width: 85px;
+        width: 90px;
         border-radius: 5px;
         justify-self: center;
         align-self: start;
@@ -279,7 +279,7 @@ const CartInfo = styled.div`
         grid-column: 1/ 2;
         grid-row: 5 / 6;
         height: 35px;
-        width: 85px;
+        width: 90px;
         border-radius: 5px;
         justify-self: start;
         align-self: start;
