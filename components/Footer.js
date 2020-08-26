@@ -40,6 +40,8 @@ h2 {
       'Lucida Sans', Arial, sans-serif;
   font-size: 12px;
   color: #737373;
+  justify-self: end;
+  margin-right: 10px;
 }
 
 @media (max-width: 1000px) {

@@ -35,39 +35,48 @@ const CartIntro = styled.div`
 `;
 
 const CartInfo = styled.div`
-  .totalCart {
+
+  .total-cart {
+    color: #737373;
     display: grid;
-    padding: 10px;
     margin-left: 100px;
     margin-right: 100px;
-    grid-template-columns: 3.75fr 1fr 0.65fr 2fr 1.25fr 0.75fr; 
+    grid-template-columns: 3.55fr 1.25fr 1.2fr 2.20fr 1.95fr 0.65fr; 
     grid-template-rows: auto;
-    justify-content: center;  
-    align-content: center;
-    justify-items: center;
-    align-items: center;
-    color: #737373;
+    font-size: 15px;
     border-top: 2px solid #eecc09;
     border-bottom: 2px solid #eecc09;
-    margin-bottom: 5px;
   }
-  @media(max-width: 700px) {
-    grid-template-columns: auto auto;
-    grid-template-rows: repeat(6, 1fr);
+  @media(max-width: 950px) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(7, 1fr);
     justify-content: center;  
     align-content: center;
     justify-items: center;
     align-items: center;
   }
-  .productName {
+
+  .product-name {
     grid-column: 1 / 2;
     grid-row: 1;
+    margin-top: 15px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
       'Lucida Sans', Arial, sans-serif;
     span {
       font-weight: bold;
     }
-    @media(max-width: 700px) {
+   
+    @media(max-width: 950px) {
+      margin-top: 5px;
+      font-size: 21px;
+      width: 500px;
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+      justify-self: stretch;
+    }
+
+    @media(max-width: 600px) {
+      margin-top: 5px;
       font-size: 13px;
       width: 200px;
       grid-column: 1 / 2;
@@ -75,34 +84,67 @@ const CartInfo = styled.div`
       justify-self: start;
     }
   }
-  .cartKilos {
+  .cart-kilos {
     grid-column: 2 / 3;
     grid-row: 1;
-    align-self: center;
+    margin-top: 15px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
       'Lucida Sans', Arial, sans-serif;
     span {
       font-weight: bold;
     }
-    @media(max-width: 700px) {
+
+    @media(max-width: 950px) {
+      grid-column: 1 / 2;
+      grid-row: 2 / 3;
+      font-size: 21px;
+      justify-self: start;
+      align-self: end;
+    }
+    @media(max-width: 600px) {
       grid-column: 1 / 2;
       grid-row: 2 / 3;
       font-size: 13px;
       justify-self: start;
       align-self: end;
+      margin-top: 0px;
     }
   }
   div {
     grid-column: 3 / 4;
     grid-row: 1;
-    align-self: start;
-    @media(max-width: 700px) {
+    align-self: center;
+
+    @media(max-width: 1440px) {
+    margin-left: -40px;
+    }
+
+    @media(max-width: 1250px) {
+    margin-left: -8px;
+    }
+
+    @media(max-width: 950px) {
+      grid-column: 1;
+      grid-row: 2 / 3;
+      font-size: 13px;
+      justify-self: center;
+      align-self: start;
+      margin-left: -200px;
+      margin-top: 17px;
+      .up {
+        font-size: 7px;
+      }
+      .down {
+        font-size: 7px;
+      }
+    }
+    @media(max-width: 600px) {
       grid-column: 1 / 2;
       grid-row: 2 / 3;
       font-size: 13px;
       justify-self: center;
-      margin-left: 30px;
       align-self: start;
+      margin-left: -40px;
       margin-top: -3px;
       .up {
         font-size: 7px;
@@ -143,83 +185,113 @@ const CartInfo = styled.div`
       }
     }
   }
-  .productPrice {
+  .product-price {
     grid-column: 4 / 5;
     grid-row: 1;
-    align-self: center;
+    margin-top: 15px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
       'Lucida Sans', Arial, sans-serif;
     span {
       font-weight: bold;
     }
-    @media(max-width: 700px) {
+    @media(max-width: 950px) {
+      grid-column: 1 / 2;
+      grid-row: 3 / 4;
+      font-size: 21px;
+      width: 300px;
+      justify-self: start;
+    }
+    @media(max-width: 600px) {
       grid-column: 1 / 2;
       grid-row: 3 / 4;
       font-size: 13px;
-      width: 120px;
+      width: 250px;
+      margin-top: 0px;
       justify-self: start;
     }
   }
-  .totalPrice {
+  .total-price {
     grid-column: 5 / 6;
     grid-row: 1;
-    align-self: center;
+    margin-top: 15px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
       'Lucida Sans', Arial, sans-serif;
     span {
       font-weight: bold;
     }
-    @media(max-width: 700px) {
+    @media(max-width: 950px) {
+      grid-column: 1 / 2;
+      grid-row: 4 / 5;
+      font-size: 21px;
+      justify-self: start;
+    }
+    @media(max-width: 600px) {
       grid-column: 1 / 2;
       grid-row: 4 / 5;
       font-size: 13px;
       justify-self: start;
+      margin-top: 0;
     }
   }
-  .x {
+  .delete-article-btn {
     grid-column: 6 / 7;
     grid-row: 1;
-    align-self: start;
-    height: 30px;
+    align-self: center;
     color: #ffffff;
+    height: 35px;
+    width: 83px;
     background-color: #eecc09;
     border: solid 2px #737373;
     border-radius: 5px;
-    text-align: center;
-      @media(max-width: 700px) {
-        grid-column: 1/ 2;
-        grid-row: 4 / 5;
-        font-size: 8px;
-        justify-self: center;
-        margin-left: 45px;
-        align-self: start;
-        margin-top: -5px;
-        p {
-          font-size: 7px;
-        }
-      }
     cursor: pointer;
     :hover {
       background-color: #ffffff;
+      color: #eecc09;
       border: solid 2px #eecc09;
     }
     :focus {
       outline-color: #ffffff;
     }
     p {
-      color: #737373;
-      font-weight: bold;
-      font-size: 15px;
+      color: #ffffff;
+      font-size: 18px;
       font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
         'Lucida Sans', Arial, sans-serif;
       :hover {
         color: #eecc09;
       }
     }
+    @media(max-width: 600px) {
+        grid-column: 1/ 2;
+        grid-row: 5 / 6;
+        height: 35px;
+        width: 83px;
+        border-radius: 5px;
+        justify-self: center;
+        align-self: start;
+        margin-bottom: 5px;
+        p {
+          font-size: 19px;
+        }
+      }
+    @media(max-width: 950px) {
+        grid-column: 1/ 2;
+        grid-row: 5 / 6;
+        height: 35px;
+        width: 83px;
+        border-radius: 5px;
+        justify-self: start;
+        align-self: start;
+        margin-bottom: 5px;
+        p {
+          font-size: 19px;
+        }
+      }
   }
 `;
 const TotalSum = styled.p`
     display: grid;
+    margin-top: 10px;
     grid-template-columns: 1fr;
     width: 90vw;
     justify-items: end;
@@ -227,8 +299,8 @@ const TotalSum = styled.p`
     color: #737373;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
       'Lucida Sans', Arial, sans-serif;
-      @media(max-width: 700px) {
-        font-size: 15px;
+      @media(max-width: 800px) {
+        font-size: 17px;
       }
 `
 const ButtonContainer = styled.div`
@@ -402,12 +474,12 @@ export default function Cart(props) {
           {cart.map(function (cartValue, index) {
             return (
               <>
-                <div className="totalCart" key={cartValue.id}>
-                  <p className="productName">
+                <div className="total-cart" key={cartValue.id}>
+                  <p className="product-name">
                     <span>Product: </span> {cartValue.name}
                   </p>
-                  <p className="cartKilos">
-                    <span>Kilos: </span>
+                  <p className="cart-kilos">
+                    <span>Kgs: </span>
                     {cartValue.kilos} /kgs{' '}
                   </p>
                   <div>
@@ -424,17 +496,17 @@ export default function Cart(props) {
                       ↓
                     </button>
                   </div>
-                  <p className="productPrice">
+                  <p className="product-price">
                     <span>Product price:</span> {cartValue.price}€
                   </p>
-                  <p className="totalPrice">
+                  <p className="total-price">
                     <span>Total price: </span>
                     {`${cartValue.kilos * cartValue.price} € `}
                   </p>
                   {/*We need to pass index (that is the position of our deletedArticle) to the function to be able to make it available and compare to our new filtered index*/}
-                  <button className="x" onClick={() => deleteArticle(index)}>
+                  <button className="delete-article-btn" onClick={() => deleteArticle(index)}>
                     {' '}
-                    <p>x</p>
+                    <p>Delete</p>
                   </button>
                 </div>
               </>
@@ -443,7 +515,7 @@ export default function Cart(props) {
         </CartInfo>
         <TotalSum>
              {/* 3. Show the variable */}
-            <p className="totalSum">
+            <p className="total-sum">
                     Total sum: {sumTotals}€
             </p>
         </TotalSum>
