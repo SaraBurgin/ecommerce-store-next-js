@@ -43,10 +43,6 @@ const ProductSelection = styled.div`
       grid-template-rows: 1fr;
       margin: 10px;
       column-gap: 20px;
-      
-    /* a {
-      display: none;
-    } */
 
     .wrapper-div {
       display: grid; 
@@ -55,10 +51,11 @@ const ProductSelection = styled.div`
       border-radius: 5px;
     }
     img {
-      width: 447px;
+      width: 452px;
       height: 225px;
       object-fit: cover;
       border-radius: 2px;
+      justify-self: center;
     }
     .name {
       text-align: center;
@@ -175,7 +172,10 @@ const ProductSelection = styled.div`
               row-gap: 5px;
               border: 4px solid #eecc09;
               border-radius: 5px;
-          }
+            }
+          img {
+            width: 447px;
+            }
           }
           @media(max-width: 960px){
             display: grid;
