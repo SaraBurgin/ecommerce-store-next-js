@@ -239,7 +239,7 @@ const CartInfo = styled.div`
     align-self: center;
     color: #ffffff;
     height: 35px;
-    width: 83px;
+    width: 85px;
     background-color: #eecc09;
     border: solid 2px #737373;
     border-radius: 5px;
