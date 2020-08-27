@@ -8,7 +8,11 @@ const Container = styled.div`
   grid-template-rows: 0.4fr 1fr 3fr;
   font-family: 'American Typewriter', 'serif';
   justify-items: center;
-  margin: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 50px;
+  margin-right: 50px;
+
   h1 {
     color: #eecc09;
   }
