@@ -50,7 +50,7 @@ const Styles = styled.div`
 const Header = () => {
   /* Create a variable for the information inside of Cookies 'cart' that we will later use for cartLength*/
   const cookie = Cookies.get('cart');
-  let bubble = 0;
+  let bubble = (0);
   /* If cookie is not undefined then create a new variable cart with the parsed (turned into object) information from cookie (that includes our cart information) & then set cartLength to the actual length of the cart */
   if (cookie !== undefined) {
     const cart = JSON.parse(cookie);
