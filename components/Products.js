@@ -71,6 +71,7 @@ const ProductSelection = styled.div`
       text-align: center;
       padding: 5px;
       height: 170px;
+      margin-bottom: 35px;
     }
     .price-and-input{
       display: grid;
