@@ -88,6 +88,7 @@ const ProductSelection = styled.div`
     .price {
       font-family: 'American Typewriter', 'serif';
       color: #000000;
+      margin-top: -3px;
       font-size: 20px;
     }
     .input-box {
