@@ -24,8 +24,7 @@ const Container = styled.div`
 
   h1 {
     font-size: 80px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-      'Lucida Sans', Arial, sans-serif;
+    font-family: 'American Typewriter', 'serif';
     margin-top: 45px;
     grid-column: 1 / 3;
     grid-row: 2 / 3;
@@ -37,8 +36,7 @@ const Container = styled.div`
 
   h2 {
     font-size: 40px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-      'Lucida Sans', Arial, sans-serif;
+    font-family: 'American Typewriter', 'serif';
     width: 800px;
     grid-column: 1 / 3;
     grid-row: 4 / 5;

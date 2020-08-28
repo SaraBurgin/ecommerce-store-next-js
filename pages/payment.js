@@ -3,65 +3,61 @@ import styled from 'styled-components';
 import Link from 'next/link';
 
 const Button = styled.button`
-  background-color: #eecc09;
-  color: #ffffff;
-  width: 175px;
-  height: 50px;
-  border-radius: 8px;
-  padding: 7px;
-  font-size: 21px;
-  margin-left: 625px;
-  margin-top: 100px;
-  vertical-align: center;
-
-  .payNow {
-    margin-top: 5px;
-  }
-
-  cursor: pointer;
-
-  :hover {
-    background-color: #ffffff;
-    color: #eecc09;
-    border: 2px solid #eecc09;
-  }
-  :focus {
-    outline-color: #ffffff;
-  }
+  display: grid;
+  justify-items: center;
+   background-color: #eecc09;
+   color: #ffffff;
+   width: 150px;
+   height: 50px;
+   border: 2px solid #dddddd;
+   border-radius: 8px;
+   padding: 7px;
+   font-size: 21px;
+   margin-top: 20px;
+   margin-bottom: 100px;
+   margin-left: auto;
+   margin-right: auto;
+      :hover {
+          background-color: #ffffff;
+          color: #eecc09;
+          border: 2px solid #eecc09;
+        }
+      :focus {
+          outline-color: #ffffff;
+        }
 `;
 const InfoForm = styled.form`
-  margin-left: 405px;
-  margin-top: 40px;
   color: #737373;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-      'Lucida Sans', Arial, sans-serif;
+  font-family: 'American Typewriter', 'serif';
+  padding: 20px;
+
     .form-group1 {
       display: grid;
-      grid-template-columns: 140px 250px;
+      grid-template-columns: 150px 250px;
     }
     .form-group2 {
       display: grid;
-      grid-template-columns: 140px 250px;
+      grid-template-columns: 150px 250px;
     }
     .form-group3 {
       display: grid;
-      grid-template-columns: 140px 250px;
+      grid-template-columns: 150px 250px;
     }
     .form-group4 {
       display: grid;
-      grid-template-columns: 140px 250px;
+      grid-template-columns: 150px 250px;
     }
     .form-group5 {
       display: grid;
-      grid-template-columns: 140px 250px;
+      grid-template-columns: 150px 250px;
     }
     .form-group6 {
       display: grid;
-      grid-template-columns: 140px 250px;
+      grid-template-columns: 150px 250px;
     }
     .form-group7 {
       display: grid;
-      grid-template-columns: 140px 250px;
+      grid-template-columns: 150px 250px;
     }
     .first-name {
     font-size: 20px;
@@ -107,10 +103,12 @@ const InfoForm = styled.form`
       color: #737373;
       font-size: 15px;
       margin-bottom: 5px;
+      margin-right: 10px;
+      @media(min-width: 830px) {
+        margin-left: -10px;
+      }
       }
 `;
-// const PaymentForm = styled.form``;
-// const PaymentMethod = styled.div``;
 
 export default function Payment() {
   return (
@@ -151,7 +149,6 @@ export default function Payment() {
               <label for="scheduleDate" className="schedule-date">Schedule Date</label>
               <input type="date" className="form-control" id="scheduleDate" />
             </div>
-          </div>
           <div className="form-group5">
             <label for="inputAddress" className="input-address">Address</label>
             <input
@@ -160,6 +157,7 @@ export default function Payment() {
               id="inputAddress"
               placeholder="1234 Main St"
             />
+          </div>
           </div>
           <div className="form-row">
             <div className="form-group6">

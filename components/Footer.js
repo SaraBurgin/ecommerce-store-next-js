@@ -8,6 +8,7 @@ grid-template-columns: 1fr;
 grid-template-rows: auto;
 border-top: 4px solid #eecc09;
 border-bottom: 4px solid #eecc09;
+align-items: end;
 
 .instagram-pic {
   margin-top: -22px;

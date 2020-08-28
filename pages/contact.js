@@ -5,9 +5,8 @@ import styled from 'styled-components'
 const Container = styled.div`
   display: grid; 
   grid-template-columns: 1fr;
-  grid-template-rows: 0.4fr 1fr 3fr;
+  grid-template-rows: 0.4fr 1fr 0.3fr 1fr;
   font-family: 'American Typewriter', 'serif';
-  justify-items: center;
   margin-top: 10px;
   margin-bottom: 10px;
   margin-left: 50px;
@@ -15,30 +14,26 @@ const Container = styled.div`
 
   h1 {
     color: #eecc09;
+    font-size: 30px;
   }
   h2 {
   font-size: 25px;
-  padding: 10px;
-  margin-bottom: 20px;
-  justify-self: center;
+  margin-bottom: 10px;
   }
-  ul {
     p {
-      font-weight: bold;
-      font-size: 20px;
-    }
+      font-size: 13x;
+        span {
+          font-weight: bold;
+        }
   }
   @media(max-width: 900px) {
     margin-top: 30px;
     h1 {
-      font-size: 22px;
-      align-self: end;
+      font-size: 25px;
     }
 
     h2 {
       font-size: 20px;
-      justify-self: center;
-      width: 80vw;
     }
   }
 `
@@ -52,10 +47,11 @@ const Contact = () => (
       <Container>
         <h1>We can't cheese it without you!</h1>
         <h2>So please, if you have any questions, recommendations or sweet things you would like to say to us... BRING IT ON!</h2>
-        <ul><p>Contact details</p>
-          <li><span>Telephone:</span> +34 934 784 619</li>
-          <li><span>E-mail:</span><a href="info@cheeseit.com"> info@cheeseit.com</a></li>
-        </ul>
+        <h1>Contact details</h1>
+        <p>
+          <span>Telephone:</span> +34 934 784 619<br/>
+          <span>E-mail:</span><a href="info@cheeseit.com"> info@cheeseit.com</a>
+        </p>
       </Container>
     </Layout>
   </>

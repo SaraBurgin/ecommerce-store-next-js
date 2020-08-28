@@ -13,6 +13,7 @@ const Container = styled.div`
 const Image = styled.img`
   margin-left: 200px;
   margin-right: 50px;
+  margin-bottom: 20px;
   object-fit: cover;
   border-radius: 3px;
   width: 500px;
@@ -21,17 +22,16 @@ const Image = styled.img`
 `;
 
 const Text = styled.div`
-  margin-top: -20px;
   display: block;
   width: 400px;
   height: 160px;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-    'Lucida Sans', Arial, sans-serif;
+  font-family: 'American Typewriter', 'serif';
+
   h1 {
     font-size: 29px;
   }
   .description {
-    font-size: 18px;
+    font-size: 17px;
   }
   .price {
     background-color: #dddddd;
@@ -40,16 +40,14 @@ const Text = styled.div`
     color: #000000;
     height: 40px;
     text-align: center;
-    padding-top: 10px;
-    margin-top: 25px;
+    margin-top: 15px;
   }
   p .container {
     margin-top: -24px;
     margin-left: 150px;
   }
   p .inputbox {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-      'Lucida Sans', Arial, sans-serif;
+    font-family: 'American Typewriter', 'serif';
     color: #eecc09;
     margin-top: -500px;
     font-size: 13px;
@@ -60,6 +58,7 @@ const Text = styled.div`
 
 const Button = styled.button`
   background-color: #eecc09;
+  border: 2px solid #dddddd;
   color: #ffffff;
   width: 175px;
   border-radius: 8px;

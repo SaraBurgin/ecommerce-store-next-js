@@ -60,8 +60,7 @@ const CartInfo = styled.div`
     grid-column: 1 / 2;
     grid-row: 1;
     margin-top: 15px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-      'Lucida Sans', Arial, sans-serif;
+    font-family: 'American Typewriter', 'serif';
     span {
       font-weight: bold;
     }
@@ -88,8 +87,7 @@ const CartInfo = styled.div`
     grid-column: 2 / 3;
     grid-row: 1;
     margin-top: 15px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-      'Lucida Sans', Arial, sans-serif;
+    font-family: 'American Typewriter', 'serif';
     span {
       font-weight: bold;
     }
@@ -189,8 +187,7 @@ const CartInfo = styled.div`
     grid-column: 4 / 5;
     grid-row: 1;
     margin-top: 15px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-      'Lucida Sans', Arial, sans-serif;
+    font-family: 'American Typewriter', 'serif';
     span {
       font-weight: bold;
     }
@@ -214,8 +211,7 @@ const CartInfo = styled.div`
     grid-column: 5 / 6;
     grid-row: 1;
     margin-top: 15px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-      'Lucida Sans', Arial, sans-serif;
+    font-family: 'American Typewriter', 'serif';
     span {
       font-weight: bold;
     }
@@ -241,22 +237,21 @@ const CartInfo = styled.div`
     height: 35px;
     width: 85px;
     background-color: #eecc09;
-    border: solid 2px #737373;
+    border: solid 2px #dddddd;
     border-radius: 5px;
     cursor: pointer;
     :hover {
-      background-color: #ffffff;
-      color: #eecc09;
-      border: solid 2px #eecc09;
-    }
-    :focus {
-      outline-color: #ffffff;
-    }
+          background-color: #ffffff;
+          color: #eecc09;
+          border: 2px solid #eecc09;
+        }
+        :focus {
+          outline-color: #ffffff;
+        }
     p {
       color: #ffffff;
       font-size: 18px;
-      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-        'Lucida Sans', Arial, sans-serif;
+      font-family: 'American Typewriter', 'serif';
       text-align: center;
       :hover {
         color: #eecc09;
@@ -298,20 +293,20 @@ const TotalSum = styled.p`
     justify-items: end;
     font-size: 20px;
     color: #737373;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-      'Lucida Sans', Arial, sans-serif;
+    font-family: 'American Typewriter', 'serif';
       @media(max-width: 800px) {
         font-size: 17px;
       }
 `
 const ButtonContainer = styled.div`
   text-align: center;
+  margin-bottom: 50px;
     .continue-2-payment {
       background-color: #eecc09;
       color: #ffffff;
       width: 150px;
       height: 50px;
-      border: 2px solid #737373;
+      border: 2px solid #dddddd;
       border-radius: 8px;
       padding: 7px;
       font-size: 21px;

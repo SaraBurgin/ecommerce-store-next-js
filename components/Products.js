@@ -10,8 +10,7 @@ const ProductPPT = styled.div`
   grid-template-rows: auto auto;
 
   h1 {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-      'Lucida Sans', Arial, sans-serif;
+    font-family: 'American Typewriter', 'serif';
     font-size: 60px;
     font-weight: bold;
     grid-column: 1;
@@ -24,8 +23,7 @@ const ProductPPT = styled.div`
     color: #eecc09;
   }
   p {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-      'Lucida Sans', Arial, sans-serif;
+    font-family: 'American Typewriter', 'serif';
     font-size: 30px;
     grid-column: 1;
     grid-row: 2;
@@ -59,8 +57,7 @@ const ProductSelection = styled.div`
     }
     .name {
       text-align: center;
-      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-      'Lucida Sans', Arial, sans-serif;
+      font-family: 'American Typewriter', 'serif';
       margin-top: 5px;
       margin-bottom: 2px;
       font-size: 27px;
@@ -68,8 +65,7 @@ const ProductSelection = styled.div`
     }
     
     .description {
-      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-      'Lucida Sans', Arial, sans-serif;
+      font-family: 'American Typewriter', 'serif';
       font-size: 17px;
       line-height: 20px;
       text-align: center;
@@ -89,14 +85,12 @@ const ProductSelection = styled.div`
       margin-top: 15px;
     }
     .price {
-      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-        'Lucida Sans', Arial, sans-serif;
+      font-family: 'American Typewriter', 'serif';
       color: #000000;
       font-size: 20px;
     }
     .input-box {
-      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-        'Lucida Sans', Arial, sans-serif;
+      font-family: 'American Typewriter', 'serif';
       color: #eecc09;
       font-size: 13px;
       height: 25px;
@@ -118,14 +112,13 @@ const ProductSelection = styled.div`
       width: 130px;
       text-decoration: none;
       background: none;
-      border: none;
+      border: 2px solid #dddddd;
       border-radius: 8px;
       background-color: #eecc09;
       padding: 7px;
       font-size: 17px;
       color: #ffffff;
-      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-        'Lucida Sans', Arial, sans-serif;
+      font-family: 'American Typewriter', 'serif';
         cursor: pointer;
         :hover {
           background-color: #ffffff;
@@ -140,14 +133,13 @@ const ProductSelection = styled.div`
         width: 130px;
         text-decoration: none;
         background: none;
-        border: none;
+        border: 2px solid #dddddd;
         border-radius: 8px;
         background-color: #eecc09;
         padding: 7px;
         font-size: 17px;
         color: #ffffff;
-        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-          'Lucida Sans', Arial, sans-serif;
+        font-family: 'American Typewriter', 'serif';
           cursor: pointer;
           :hover {
             background-color: #ffffff;
