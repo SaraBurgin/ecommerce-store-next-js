@@ -12,6 +12,7 @@ const Styles = styled.div`
     grid-template-columns: 1fr; 
     grid-template-rows: 1fr;
     margin-bottom: -25px;
+
   .cart-pic {
     grid-column: 1;
     grid-row: 1;
@@ -26,6 +27,9 @@ const Styles = styled.div`
     justify-self: end;
   }
   @media(max-width: 990px) {
+    .cart {
+      margin-bottom: 0px;
+    }
     .cart-pic {
     grid-column: 1;
     grid-row: 1;
