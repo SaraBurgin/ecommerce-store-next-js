@@ -233,12 +233,14 @@ const CartInfo = styled.div`
     grid-column: 6 / 7;
     grid-row: 1;
     align-self: center;
-    color: #ffffff;
     height: 35px;
     width: 85px;
+    text-align: center;
     background-color: #eecc09;
+    color: #ffffff;
     border: solid 2px #dddddd;
     border-radius: 5px;
+
     cursor: pointer;
     :hover {
           background-color: #ffffff;
@@ -249,7 +251,6 @@ const CartInfo = styled.div`
           outline-color: #ffffff;
         }
     p {
-      color: #ffffff;
       font-size: 18px;
       font-family: 'American Typewriter', 'serif';
       text-align: center;
