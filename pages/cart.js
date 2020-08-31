@@ -477,7 +477,7 @@ export default function Cart(props) {
                   </p>
                   <p className="cart-kilos">
                     <span>Kgs: </span>
-                    {cartValue.kilos} /kgs{' '}
+                    {cartValue.kilos}
                   </p>
                   <div>
                     <button
