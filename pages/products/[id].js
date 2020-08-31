@@ -6,76 +6,121 @@ import Cookies from 'js-cookie';
 import React, { useState } from 'react';
 
 const Container = styled.div`
-  display: flex;
+  display: grid;
   margin-top: 30px;
+  margin-bottom: 30px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+
+    .product-image {
+      object-fit: cover;
+      border-radius: 3px;
+      width: 500px;
+      height: 362px;
+      border: 3px solid #eecc09;
+      justify-self: end;
+      margin-right: 10px;
+    }
+    .text-description {
+      width: 400px;
+      margin-left: 10px;
+      font-family: 'American Typewriter', 'serif';
+
+      h1 {
+        font-size: 29px;
+      }
+      .product-name {
+        font-size: 17px;
+      }
+
+      .handleclick-btn {
+        background-color: #eecc09;
+        border: 2px solid #dddddd;
+        color: #ffffff;
+        width: 175px;
+        border-radius: 8px;
+        padding: 7px;
+        font-size: 21px;
+        justify-self: center;
+
+        cursor: pointer;
+        :hover {
+          background-color: #ffffff;
+          color: #eecc09;
+          border: 2px solid #eecc09;
+          outline-color: #ffffff;
+        }
+        :focus {
+          outline-color: #ffffff;
+        }
+            }
+
+      .price-and-input-container {
+       display: grid; 
+       grid-template-columns: 1fr 1fr;
+       background-color: #dddddd;
+       border-radius: 5px;
+       margin-bottom: 15px;
+       align-items: center;
+       
+        .price {
+          font-size: 20px;
+          color: #000000;
+          text-align: end;
+          margin-top: 12px;
+          margin-right: 5px;
+      }
+        .inputbox {
+          font-family: 'American Typewriter', 'serif';
+          color: #eecc09;
+          font-size: 13px;
+          width: 55px;
+          height: 30px;
+          border-radius: 5px;
+          border: 2px solid #eecc09;
+        }
+      }
+        }
+
+  @media(max-width: 930px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    
+    .product-image {
+      margin-bottom: 10px;
+      justify-self: center;
+      align-self: center;
+      margin-right: 0px;
+    }
+    .text-description {
+     padding: 10px;
+     justify-self: center;
+     align-self: center;
+     margin-left: 0px;
+    }
+  }
+
+  @media(max-width: 499px) {
+    .product-image {
+      object-fit: cover;
+      border-radius: 3px;
+      width: 340px;
+      height: 340px;
+      border: 3px solid #eecc09;
+      justify-self: center;
+      margin-right: 0px;
+
+    }
+    .text-description {
+     padding: 10px;
+     width: 340px;
+     justify-self: center;
+     align-self: center;
+     margin-left: 0px;
+    }
+  }
 `;
 
-const Image = styled.img`
-  margin-left: 200px;
-  margin-right: 50px;
-  margin-bottom: 20px;
-  object-fit: cover;
-  border-radius: 3px;
-  width: 500px;
-  height: 362px;
-  border: 3px solid #eecc09;
-`;
-
-const Text = styled.div`
-  display: block;
-  width: 400px;
-  height: 160px;
-  font-family: 'American Typewriter', 'serif';
-
-  h1 {
-    font-size: 29px;
-  }
-  .description {
-    font-size: 17px;
-  }
-  .price {
-    background-color: #dddddd;
-    width: 400px;
-    font-size: 20px;
-    color: #000000;
-    height: 40px;
-    text-align: center;
-    margin-top: 15px;
-  }
-  p .container {
-    margin-top: -24px;
-    margin-left: 150px;
-  }
-  p .inputbox {
-    font-family: 'American Typewriter', 'serif';
-    color: #eecc09;
-    margin-top: -500px;
-    font-size: 13px;
-    width: 55px;
-    border: 2px solid;
-  }
-`;
-
-const Button = styled.button`
-  background-color: #eecc09;
-  border: 2px solid #dddddd;
-  color: #ffffff;
-  width: 175px;
-  border-radius: 8px;
-  padding: 7px;
-  font-size: 21px;
-  margin-left: 110px;
-  margin-top: -10px;
-  cursor: pointer;
-  :hover {
-    background-color: #ffffff;
-    color: #eecc09;
-    border: 2px solid #eecc09;
-  }
-  :focus {
-    outline-color: #ffffff;
-  }
-`;
 
 export default function Product(props) {
   /*We create a variable to call the useRouter() function below*/
@@ -141,13 +186,14 @@ export default function Product(props) {
       <Layout>
         <Head />
         <Container>
-          <Image src={`/images/${product.id}.jpg`}></Image>
-          <Text>
+          <img className="product-image" src={`/images/${product.id}.jpg`} />
+          <div className="text-description">
             <h1>{product.name}</h1>
-            <p className="description">{product.description}</p>
-            <p className="price">
-              {product.price}€/Kg
-              <div className="container">
+            <p className="product-name">{product.description}</p>
+            <div className="price-and-input-container">
+                <p className="price">
+                {product.price}€/Kg
+                </p>
                 <select onChange={handleChange} className="inputbox">
                   <option value="1">1kg</option>
                   <option value="2">2kg </option>
@@ -155,10 +201,9 @@ export default function Product(props) {
                   <option value="4">4kg </option>
                   <option value="5">5kg </option>
                 </select>
-              </div>
-            </p>
-            <Button onClick={handleClick}> Add to cart</Button>
-          </Text>
+            </div>
+            <button className="handleclick-btn" onClick={handleClick}> Add to cart</button>
+          </div>
         </Container>
       </Layout>
     </>
