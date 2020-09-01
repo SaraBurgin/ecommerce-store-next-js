@@ -1,5 +1,12 @@
 import styled from 'styled-components';
 
+const PageContainer = styled.div`
+ display: grid;
+ grid-template-columns: 1fr;
+ grid-template-rows: 50vh;
+ align-items: end;
+`
+
 const FooterContainer = styled.div `
 display: grid;
 margin-left: 20px;
@@ -59,20 +66,23 @@ h2 {
 
 const Footer = () => (
   <>
-  <FooterContainer>
-      <img className="instagram-pic" src="/images/instagram.png" alt="instagramicon" />
-      <img className="facebook-pic" src="/images/facebook.png" alt="facebookicon" /> 
-      <img className="cheese-pic" src="/images/logo.png" alt="cheesepic" />
-      <h2>
-        <span>Tlfn:</span> +34 934 784 619
-        <br />
-        <a href="info@cheeseit.com">info@cheeseit.com</a>
-        <br />
-        Markgraf Strasse, 59
-        <br />
-        <span>Wien</span>
-      </h2>
-    </FooterContainer>
+  <PageContainer>
+    <FooterContainer>
+        <img className="instagram-pic" src="/images/instagram.png" alt="instagramicon" />
+        <img className="facebook-pic" src="/images/facebook.png" alt="facebookicon" /> 
+        <img className="cheese-pic" src="/images/logo.png" alt="cheesepic" />
+        <h2>
+          <span>Tlfn:</span> +34 934 784 619
+          <br />
+          <a href="info@cheeseit.com">info@cheeseit.com</a>
+          <br />
+          Markgraf Strasse, 59
+          <br />
+          <span>Wien</span>
+        </h2>
+        {/* &copy;{new Date().getFullYear()} CHEESE IT INC | All rights reserved | Terms Of Service | Privacy */}
+      </FooterContainer>
+    </PageContainer>
   </>
 );
 

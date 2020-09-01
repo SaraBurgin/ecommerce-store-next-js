@@ -67,8 +67,8 @@ const Container = styled.div`
           font-size: 20px;
           color: #000000;
           text-align: end;
-          margin-top: 12px;
-          margin-right: 5px;
+          margin-top: 15px;
+          margin-right: 10px;
       }
         .inputbox {
           font-family: 'American Typewriter', 'serif';
