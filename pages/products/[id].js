@@ -25,6 +25,7 @@ const Container = styled.div`
       width: 400px;
       margin-left: 10px;
       font-family: 'American Typewriter', 'serif';
+      text-align: center;
 
       h1 {
         font-size: 29px;
