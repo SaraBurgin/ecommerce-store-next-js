@@ -113,6 +113,7 @@ const Container = styled.div`
   h1 {
     grid-column: 1 / 4;
     grid-row: 2 / 3;
+    text-align: center;
     justify-self: center;
     font-size: 55px;
   }

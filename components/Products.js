@@ -31,6 +31,7 @@ const ProductPPT = styled.div`
   @media (max-width: 990px) {
     h1 {
       font-size: 45px;
+      text-align: center;
     }
   }
 `;
